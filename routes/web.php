@@ -16,11 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/info', function (){
-  echo 'Hello';
-});
-
-Route::get('/test', function(){
-  echo 'test git';
-});
