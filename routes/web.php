@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('admin/users/login', [LoginController::class, 'login']);
+Route::post('admin/users/login/news', [LoginController::class, 'news']);
+
+Route::get('admin/main', [MainController::class, 'index'])->name('admin');

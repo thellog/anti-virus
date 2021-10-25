@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
     <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,4 +29,3 @@
     <!-- owl stylesheets -->
     <link rel="stylesheet" href="/frontend/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/frontend/css/owl.theme.default.css">
-</head>
