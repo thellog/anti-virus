@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @include('head')
+    @include('common.head')
 </head>
 
 <body id="default_theme" class="home_page1">
@@ -47,7 +47,7 @@
     <div class="container" style="margin-top: 500px;">
         <!-- Noi dung hien thi o day -->
     </div>
-    @include('foot')
+    @include('common.foot')
 </body>
 
 </html>
