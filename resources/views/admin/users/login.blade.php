@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @include('admin.users.head')
+    @include('admin.head')
 </head>
 
 <body class="hold-transition login-page">
@@ -61,5 +61,5 @@
         </div>
     </div>
 </body>
-@include('admin.users.footer')
+@include('admin.footer')
 </html>
