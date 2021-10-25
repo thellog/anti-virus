@@ -18,7 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/users/login', [LoginController::class, 'login']);
+Route::get('admin/users/login', [LoginController::class, 'login'])->name('login');
 Route::post('admin/users/login/news', [LoginController::class, 'news']);
 
-Route::get('admin/main', [MainController::class, 'index'])->name('admin');
+
+Route::middleware('auth')->group(function () {
+    Route::get('admin', [MainController::class, 'index'])->name('admin');
+    Route::get('admin/main', [MainController::class, 'index']);
+});
