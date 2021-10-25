@@ -32,7 +32,7 @@
                     <div class="col-md-6">
                         <div class="float-right">
                             <ul class="top_links">
-                                <li><a href="{{ URL::to('/login') }}"><img src="/frontend/images/profile_icon.png" alt="#" /></a></li>
+                                <li><a href="{{ URL::to('admin/users/login') }}"><img src="/frontend/images/profile_icon.png" alt="#" /></a></li>
                                 <li class="searchbar">
                                     <input class="search_input" type="text" name="" placeholder="Search...">
                                     <a href="#" class="search_icon"><img src="/frontend/images/search_icon.png" alt="#" /></a>
