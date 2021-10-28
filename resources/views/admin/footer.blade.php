@@ -9,3 +9,5 @@
 <script src="/template/plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/template/dist/js/demo.js"></script>
+
+@yield('footer')
