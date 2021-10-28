@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,18 @@ Route::get('admin/users/login', [LoginController::class, 'login'])->name('login'
 Route::post('admin/users/login/news', [LoginController::class, 'news']);
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('admin', [MainController::class, 'index'])->name('admin');
-    Route::get('admin/main', [MainController::class, 'index']);
+Route::middleware(['auth'])->group(function () {
+  # Tao group cho admin
+  Route::prefix('admin')->group(function (){
+    # ~ admin
+    Route::get('/', [MainController::class, 'index'])->name('admin');
+    # ~ admin/main
+    Route::get('main', [MainController::class, 'index']);
+    
+    # Tao group cho category
+    # Them danh muc
+    Route::prefix('categories')->group(function (){
+      Route::get('add', [CategoryController::class, 'addCategory']);
+    });
+  });
 });
