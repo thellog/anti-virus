@@ -23,17 +23,22 @@ Route::post('admin/users/login/news', [LoginController::class, 'news']);
 
 
 Route::middleware(['auth'])->group(function () {
-  # Tao group cho admin
-  Route::prefix('admin')->group(function (){
-    # ~ admin
-    Route::get('/', [MainController::class, 'index'])->name('admin');
-    # ~ admin/main
-    Route::get('main', [MainController::class, 'index']);
-    
-    # Tao group cho category
-    # Them danh muc
-    Route::prefix('categories')->group(function (){
-      Route::get('add', [CategoryController::class, 'addCategory']);
+    # Tao group cho admin
+    Route::prefix('admin')->group(function () {
+        # ~ admin
+        Route::get('/', [MainController::class, 'index'])->name('admin');
+        # ~ admin/main
+        Route::get('main', [MainController::class, 'index']);
+
+        # Tao group cho category
+        Route::prefix('categories')->group(function () {
+            # admin/categories/add
+            # Chuyen sang trang them danh muc
+            Route::get('add', [CategoryController::class, 'addCategory']);
+            # Them danh muc
+            Route::post('add', [CategoryController::class, 'saveCategory']);
+            # Danh sach danh muc
+            Route::get('list', [CategoryController::class, 'listCategory']);
+        });
     });
-  });
 });

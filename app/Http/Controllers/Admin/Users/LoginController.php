@@ -27,7 +27,7 @@ class LoginController extends Controller
             'email' => $req->input('email'),
             'password' => $req->input('password')
         ], $req->input('remember'))) {
-            return redirect()->route('lon');
+            return redirect()->route('admin');
         }
         Session::flash('error', 'Email or password is incorrect');
         return redirect()->back();
