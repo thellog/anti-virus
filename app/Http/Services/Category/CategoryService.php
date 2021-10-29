@@ -34,4 +34,30 @@ class CategoryService
     {
         return Category::orderbyDesc('id')->paginate('20');
     }
+
+    public function destroy($req)
+    {
+        $id = (int) $req->input('id');
+        $category = Category::where('id', $id)->first();
+        if ($category) {
+            return Category::where('id', $id)->orWhere('parent_id', $id)->delete();
+        }
+        return false;
+    }
+
+    public function update($category, $formRequest): bool
+    {
+        if ($formRequest->parent_id != $category->id) {
+            $category->parent_id = $formRequest->input('parent_id');
+            $category->name = $formRequest->input('name');
+            $category->description = $formRequest->input('description');
+            $category->content = $formRequest->input('content');
+            $category->save();
+
+            Session::flash('success', 'Cập nhật thông tin danh mục thành công!');
+            return true;
+        }
+        Session::flash('error', 'Cập nhật lỗi, xin kiểm tra lại danh mục!');
+        return false;
+    }
 }
