@@ -4,16 +4,15 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th style="width: 50px;">ID</th>
             <th>Tin tức</th>
             <th>Mô tả</th>
+            <th>Ngày cập nhật</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-        <td>
-        <th></th>
-        </td>
+    {!! \App\Helpers\Helper::category($categories) !!}
     </tbody>
 </table>
 @endsection
