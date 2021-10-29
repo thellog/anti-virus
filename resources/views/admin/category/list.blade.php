@@ -8,7 +8,7 @@
             <th>Tin tức</th>
             <th>Mô tả</th>
             <th>Ngày cập nhật</th>
-            <th>&nbsp;</th>
+            <th style="width: 150px;">&nbsp;</th>
         </tr>
     </thead>
     <tbody>

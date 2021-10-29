@@ -39,6 +39,11 @@ Route::middleware(['auth'])->group(function () {
             Route::post('add', [CategoryController::class, 'saveCategory']);
             # Danh sach danh muc
             Route::get('list', [CategoryController::class, 'listCategory']);
+            # Xoa danh muc
+            Route::DELETE('destroy', [CategoryController::class, 'destroy']);
+            # Sua danh muc
+            Route::get('edit/{category}', [CategoryController::class, 'show']);
+            Route::post('edit/{category}', [CategoryController::class, 'update']);
         });
     });
 });
