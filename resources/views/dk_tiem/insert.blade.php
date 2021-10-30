@@ -144,9 +144,9 @@
                 <textarea type="text-area" rows="3" name="tiensubenh" class="form-control"> {{old('tiensubenh')}}</textarea>
             </div>
 
-            <button name="submit" class="btn btn-primary"> Đăng ký tiêm</button>
+            <button name="submit" class="btn btn-success"> Đăng ký tiêm</button>
 
-            <div class="form-group col-md-12" style="color:black">Lưu ý: Đăng thông tin đúng sự thật</div>
+            <div class="form-group col-md-12" style="color:red">Lưu ý: Đăng thông tin đúng sự thật</div>
 
         </div>
     </form>

@@ -9,10 +9,31 @@
 }
 
 .inner {
-  color: #ffffff;
+  color: #000000;
 }
 #insert-bg {
-  background-color: #000000;
+  background-color: #dce3de;
+}
+
+#insert-bg input{
+  border:solid 1px #000000;
+}
+
+::placeholder { /* chạy tốt trên Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #000000 !important;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* chạy trên Internet Explorer 10-11 */
+    color: #000000 !important;
+}
+
+::-ms-input-placeholder { /* chạy trên Microsoft Edge */
+    color: #000000 !important;
+}
+
+#insert-bg select{
+  border: 1px solid #000000;
 }
 
 #icon {
