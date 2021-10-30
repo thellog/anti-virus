@@ -51,8 +51,10 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('news')->group(function () {
             Route::get('add', [NewsController::class, 'create']);
             Route::post('add', [NewsController::class, 'store']);
-            Route::get('list', [NewsController::class, 'index']);
+            Route::get('list', [NewsController::class, 'index'])->name('list');
             Route::get('edit/{news}', [NewsController::class, 'show']);
+            Route::post('edit/{news}', [NewsController::class, 'update']);
+            Route::DELETE('destroy', [NewsController::class, 'destroy']);
         });
 
         # upload image

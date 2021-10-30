@@ -68,9 +68,13 @@ class NewsController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, News $news)
     {
-        //
+        $res = $this->newsAdminService->update($request, $news);
+        if ($res) {
+            return redirect()->route('list');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -79,8 +83,18 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $res = $this->newsAdminService->delete($request);
+        if ($res) {
+            return response()->json([
+                'error' => false,
+                'message' => ' Xóa bài viết thành công'
+            ]);
+        }
+
+        return response()->json([
+            'error' => true,
+        ]);
     }
 }
