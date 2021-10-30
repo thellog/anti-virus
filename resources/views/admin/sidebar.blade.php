@@ -45,13 +45,13 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="/admin/categories/add" class="nav-link">
+                              <a href="{{ URL::to('/admin/categories/add') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Thêm danh mục</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="/admin/categories/list" class="nav-link">
+                              <a href="{{ URL::to('/admin/categories/list') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Xem danh mục</p>
                               </a>
@@ -70,9 +70,15 @@
                               </a>
                               <ul class="nav nav-treeview">
                                   <li class="nav-item">
-                                      <a href="/admin/news/add" class="nav-link">
+                                      <a href="{{ URL::to('/admin/news/add') }}" class="nav-link">
                                           <i class="far fa-circle nav-icon"></i>
                                           <p>Tạo bài viết</p>
+                                      </a>
+                                  </li>
+                                   <li class="nav-item">
+                                      <a href="{{ URL::to('/admin/news/list') }}" class="nav-link">
+                                          <i class="far fa-circle nav-icon"></i>
+                                          <p>Danh sách các bài viết</p>
                                       </a>
                                   </li>
                               </ul>
