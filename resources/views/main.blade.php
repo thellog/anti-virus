@@ -45,7 +45,7 @@
                     <div class="content">
                         <h2 class="major">Đăng kí tiêm vaccine,</h2>
                         <p>"Vaccine tốt nhất là vaccine được tiêm sớm nhất" - Hãy nhớ điều đó nhé! Ở đây chúng tôi sẽ giúp bạn </p>
-                        <a href="#" class="special">Đăng kí ngay!</a>
+                        <a href="{{ URL::to('dk_tiem/insert') }}" class="special">Đăng kí ngay!</a>
                     </div>
                 </div>
             </section>
