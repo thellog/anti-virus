@@ -1,5 +1,5 @@
 @extends('admin.main')
 
 @section('content')
-  ol
+  Hello World
 @endsection

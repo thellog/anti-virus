@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\UpImgController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +47,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('edit/{category}', [CategoryController::class, 'show']);
             Route::post('edit/{category}', [CategoryController::class, 'update']);
         });
+        # news
+        Route::prefix('news')->group(function () {
+            Route::get('add', [NewsController::class, 'create']);
+            Route::post('add', [NewsController::class, 'store']);
+        });
+
+        # upload image
+        Route::post('upload/services', [UpImgController::class, 'store']);
     });
 });

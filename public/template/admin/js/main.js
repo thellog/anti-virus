@@ -4,6 +4,7 @@ $.ajaxSetup({
     }
 });
 
+// Ajax xoa san pham
 function removeRow(id, url) {
     if (confirm('Bạn có thực sự muốn xóa ?')) {
         $.ajax({
@@ -19,6 +20,30 @@ function removeRow(id, url) {
                     alert(' Hình như cái đó xóa rồi!');
                 }
             }
-        })
+        });
     }
 }
+
+// Ajax upload anh
+$('#upload').change(function() {
+    const form = new FormData();
+    form.append('file', $(this)[0].files[0]);
+
+    $.ajax({
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        dataType: 'JSON',
+        data: form,
+        url: '/admin/upload/services',
+        success: function(results) {
+            if (results.error === false) {
+                $('#image_show').html('<a href=" ' + results.url + ' " target="_blank">' +
+                    '<img src=" ' + results.url + ' "width="100px"></a>');
+                $('#thumb').val(results.url);
+            } else {
+                alert('Upload file lỗi, hoặc không tìm thấy file!');
+            }
+        }
+    });
+});
