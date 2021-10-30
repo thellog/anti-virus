@@ -15,7 +15,7 @@ class NewsAdminService
 
     public function get()
     {
-        return News::orderByDesc('id')->paginate(15);
+        return News::with('category')->orderByDesc('id')->paginate(15);
     }
     public function insert($request)
     {

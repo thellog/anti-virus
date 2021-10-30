@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\News\NewsRequest;
 use App\Http\Services\News\NewsAdminService;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-  # Controller
+    # Controller
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +25,7 @@ class NewsController extends Controller
     {
         return view('admin.news.list', [
             'title' => 'Danh sách bài viết',
-            'categories' => $this->newsAdminService->get()
+            'newses' => $this->newsAdminService->get()
         ]);
     }
 
@@ -54,35 +55,19 @@ class NewsController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(News $news)
+    {
+        return view('admin.news.edit', [
+            'title' => 'Chỉnh sửa bài viết',
+            'news' => $news,
+            'categories' => $this->newsAdminService->getAll()
+        ]);
+    }
+    public function edit()
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
