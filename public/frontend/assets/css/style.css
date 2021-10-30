@@ -1,0 +1,29 @@
+#home-bg {
+  background-image: url("../../images/doctor-5773629.png");
+  color: #ffffff;
+}
+
+#footer{
+  background-color: #34a1eb;
+  color: #000000;
+}
+
+.inner {
+  color: #ffffff;
+}
+#insert-bg {
+  background-color: #000000;
+}
+
+#icon {
+	border-radius: 100%;
+	border: solid 2px #000000;
+    color: #000000;
+	cursor: default;
+	display: inline-block;
+	font-size: 2em;
+	height: 2.25em;
+	line-height: 2.25em;
+	text-align: center;
+	width: 2.25em;
+}

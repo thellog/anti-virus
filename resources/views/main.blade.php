@@ -5,38 +5,19 @@
     @include('head')
 </head>
 
-<body class="is-preload">
+<body class="is-preload" id="home-bg">
 
     <!-- Page Wrapper -->
     <div id="page-wrapper">
 
         <!-- Header -->
-        <header id="header" class="alt">
-            <h1><a href="index.html">No Covid</a></h1>
-            <nav>
-                <a href="#menu">Menu</a>
-            </nav>
-        </header>
-
+        @include('header')
         <!-- Menu -->
-        <nav id="menu">
-            <div class="inner">
-                <h2>Menu</h2>
-                <ul class="links">
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="generic.html">Khai báo y tế</a></li>
-                    <li><a href="elements.html">Đăng kí tiêm</a></li>
-                    <li><a href="{{ URL::to('admin/users/login') }}">Đăng nhập</a></li>
-                    <li><a href="#">Đăng kí</a></li>
-                </ul>
-                <a href="#" class="close">Close</a>
-            </div>
-        </nav>
-
+        @include('menu')
         <!-- Banner -->
         <section id="banner">
             <div class="inner">
-                <div class="logo"><span class="icon fa-gem"></span></div>
+                <div class="logo"><i id="icon" class="fas fa-user-shield"></i></div>
                 <h2>Cám ơn đã ghé thăm, </h2>
                 <p>Đây là nơi bạn có thể cập nhập tin tức, thông tin về đại dịch covid-19</p>
             </div>
@@ -48,7 +29,7 @@
             <!-- One -->
             <section id="one" class="wrapper spotlight style1">
                 <div class="inner">
-                    <a href="#" class="image"><img src="/frontend/images/pic01.jpg" alt="" /></a>
+                    <a href="#" class="image"><img src="/frontend/images/social-distancing-4997637_640.jpg" alt="" /></a>
                     <div class="content">
                         <h2 class="major">Khai báo y tế,</h2>
                         <p>Dù bạn có ở đâu, đi đâu, hay về đâu, hãy nhớ khai báo nha.</p>
@@ -60,7 +41,7 @@
             <!-- Two -->
             <section id="two" class="wrapper alt spotlight style2">
                 <div class="inner">
-                    <a href="#" class="image"><img src="/frontend/images/pic02.jpg" alt="" /></a>
+                    <a href="#" class="image"><img src="/frontend/images/covid-19-4982914_640.jpg" alt="" /></a>
                     <div class="content">
                         <h2 class="major">Đăng kí tiêm vaccine,</h2>
                         <p>"Vaccine tốt nhất là vaccine được tiêm sớm nhất" - Hãy nhớ điều đó nhé! Ở đây chúng tôi sẽ giúp bạn </p>
@@ -72,7 +53,7 @@
             <!-- Three -->
             <section id="three" class="wrapper spotlight style3">
                 <div class="inner">
-                    <a href="#" class="image"><img src="/frontend/images/pic03.jpg" alt="" /></a>
+                    <a href="#" class="image"><img src="/frontend/images/coronavirus-4910360_640.jpg" alt="" /></a>
                     <div class="content">
                         <h2 class="major">Tin tức về covid-19,</h2>
                         <p>Nhận những thông tin mới nhất về đại dịch covid-19 cùng với những câu chuyện bên lề.</p>
