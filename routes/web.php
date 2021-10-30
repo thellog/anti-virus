@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\MainController as Main;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UpImgController;
@@ -18,9 +19,8 @@ use App\Http\Controllers\Insert\InsertController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Main::class, 'index']);
+
 Route::get('admin/users/login', [LoginController::class, 'login'])->name('login');
 Route::post('admin/users/login/news', [LoginController::class, 'news']);
 
