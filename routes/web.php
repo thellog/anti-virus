@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UpImgController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Insert\InsertController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,15 @@ Route::get('/', function () {
 });
 Route::get('admin/users/login', [LoginController::class, 'login'])->name('login');
 Route::post('admin/users/login/news', [LoginController::class, 'news']);
+
+//router get post trang dk tiem
+ Route::get('dk_tiem/insert', [InsertController::class, 'view']);
+ Route::post('dk_tiem/insert', [InsertController::class, 'create'])->name('dk_tiem/insert');
+
+//router ajax trang dk tiem
+Route::get('dk_tiem/insert',[InsertController::class, 'index']);
+Route::get('getDistrict',[InsertController::class, 'getDistrict'])->name('getDistrict');
+Route::get('getWard',[InsertController::class, 'getWard'])->name('getWard');
 
 
 Route::middleware(['auth'])->group(function () {
