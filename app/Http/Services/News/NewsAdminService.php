@@ -17,6 +17,7 @@ class NewsAdminService
     {
         return News::with('category')->orderByDesc('id')->paginate(15);
     }
+
     public function insert($request)
     {
         try {
@@ -28,5 +29,26 @@ class NewsAdminService
             return false;
         }
         return true;
+    }
+
+    public function update($request, $news)
+    {
+        try {
+            $news->fill($request->input());
+            $news->save();
+            Session::flash('success', 'Cập nhật bài viết thành công!');
+        } catch (\Exception $error) {
+            Session::flash('error', 'Cập nhật thông tin thất bại! Mã lỗi: ' . $error->getMessage());
+        }
+    }
+
+    public function delete($request)
+    {
+        $check = News::where('id', $request->input('id'))->first();
+        if ($check) {
+            $check->delete();
+            return true;
+        }
+        return false;
     }
 }
