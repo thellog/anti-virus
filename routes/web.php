@@ -22,7 +22,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::prefix('/')->group(function(){
-  Route::get('/', [Main::class, 'index']);
+  Route::get('/', [Main::class, 'index'])->name('/');
   Route::get('login', [Main::class, 'login'])->name('login');
   Route::post('login/store', [Main::class, 'store']);
 });
@@ -40,7 +40,7 @@ Route::get('dk_tiem/insert',[InsertController::class, 'index']);
 Route::get('getDistrict',[InsertController::class, 'getDistrict'])->name('getDistrict');
 Route::get('getWard',[InsertController::class, 'getWard'])->name('getWard');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     # Tao group cho admin
     Route::prefix('admin')->group(function () {
         # ~ admin
