@@ -12,6 +12,6 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="/template/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="/frontend/css/form.css">
-
+  <link rel="stylesheet" href="/template/dist/css/main.css">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   @yield('head')

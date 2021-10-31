@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="title">Tiêu đề</label>
-                    <input type="text" name="name" value="" class="form-control" placeholder="Nhập tiêu đề">
+                    <input type="text" name="name" class="form-control" placeholder="Nhập tiêu đề">
                 </div>
             </div>
 
@@ -20,7 +20,9 @@
                     <label>Danh Mục</label>
                     <select class="form-control" name="category_id">
                         @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}">
+                            {{ $category->name }}
+                        </option>
                         @endforeach
                     </select>
                 </div>
@@ -40,7 +42,6 @@
             <label for="menu">Ảnh Bài Viết</label>
             <input type="file" class="form-control" id="upload">
             <div id="image_show">
-
             </div>
             <input type="hidden" name="thumb" id="thumb">
         </div>

@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\RegisterTiemController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\MainController as Main;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UpImgController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Insert\InsertController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,12 +21,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [Main::class, 'index']);
+
 Route::get('admin/users/login', [LoginController::class, 'login'])->name('login');
 Route::post('admin/users/login/news', [LoginController::class, 'news']);
 
+//router get post trang dk tiem
+ Route::get('dk_tiem/insert', [InsertController::class, 'view']);
+ Route::post('dk_tiem/insert', [InsertController::class, 'create'])->name('dk_tiem/insert');
+
+//router ajax trang dk tiem
+Route::get('dk_tiem/insert',[InsertController::class, 'index']);
+Route::get('getDistrict',[InsertController::class, 'getDistrict'])->name('getDistrict');
+Route::get('getWard',[InsertController::class, 'getWard'])->name('getWard');
 
 Route::middleware(['auth'])->group(function () {
     # Tao group cho admin
@@ -51,10 +63,18 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('news')->group(function () {
             Route::get('add', [NewsController::class, 'create']);
             Route::post('add', [NewsController::class, 'store']);
-            Route::get('list', [NewsController::class, 'index']);
+            Route::get('list', [NewsController::class, 'index'])->name('list');
+            Route::get('edit/{news}', [NewsController::class, 'show']);
+            Route::post('edit/{news}', [NewsController::class, 'update']);
+            Route::DELETE('destroy', [NewsController::class, 'destroy']);
         });
 
         # upload image
         Route::post('upload/services', [UpImgController::class, 'store']);
+
+        # hiển thi danh sách đăng ký tiêm
+        Route::prefix('register_tiem')->group(function () {
+            Route::get('list',[RegisterTiemController::class,'index'])->name('list');
+        });
     });
-});
+   });

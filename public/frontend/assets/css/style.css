@@ -1,0 +1,50 @@
+#home-bg {
+  background-image: url("../../images/doctor-5773629.png");
+  color: #ffffff;
+}
+
+#footer{
+  background-color: #34a1eb;
+  color: #000000;
+}
+
+.inner {
+  color: #000000;
+}
+#insert-bg {
+  background-color: #dce3de;
+}
+
+#insert-bg input{
+  border:solid 1px #000000;
+}
+
+::placeholder { /* chạy tốt trên Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #000000 !important;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* chạy trên Internet Explorer 10-11 */
+    color: #000000 !important;
+}
+
+::-ms-input-placeholder { /* chạy trên Microsoft Edge */
+    color: #000000 !important;
+}
+
+#insert-bg select{
+  border: 1px solid #000000;
+}
+
+#icon {
+	border-radius: 100%;
+	border: solid 2px #000000;
+    color: #000000;
+	cursor: default;
+	display: inline-block;
+	font-size: 2em;
+	height: 2.25em;
+	line-height: 2.25em;
+	text-align: center;
+	width: 2.25em;
+}
