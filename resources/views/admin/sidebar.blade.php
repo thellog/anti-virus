@@ -33,8 +33,7 @@
           <!-- Sidebar Menu -->
           <nav class="mt-2">
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                  <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+          
                   <li class="nav-item">
                       <a href="#" class="nav-link">
                           <i class="fas fa-align-justify"></i>
@@ -57,31 +56,57 @@
                               </a>
                           </li>
                       </ul>
-                      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                          <li class="nav-item">
-                              <a href="#" class="nav-link">
-                                  <i class="fas fa-pen-alt"></i>
-                                  <p>
-                                      Bài viết
-                                      <i class="right fas fa-angle-left"></i>
-                                  </p>
-                              </a>
-                              <ul class="nav nav-treeview">
-                                  <li class="nav-item">
-                                      <a href="{{ URL::to('/admin/news/add') }}" class="nav-link">
-                                          <i class="far fa-circle nav-icon"></i>
-                                          <p>Tạo bài viết</p>
-                                      </a>
-                                  </li>
-                                   <li class="nav-item">
-                                      <a href="{{ URL::to('/admin/news/list') }}" class="nav-link">
-                                          <i class="far fa-circle nav-icon"></i>
-                                          <p>Danh sách các bài viết</p>
-                                      </a>
-                                  </li>
-                              </ul>
+                    </li>
+                
+                    
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-pen-alt"></i>
+                        <p>
+                            Bài viết
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ URL::to('/admin/news/add') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tạo bài viết</p>
+                            </a>
+                        </li>
+                         <li class="nav-item">
+                            <a href="{{ URL::to('/admin/news/list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách các bài viết</p>
+                            </a>
+                        </li>
+                    </ul>
+                  </li>
+
+                   <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-pen-alt"></i>
+                        <p>
+                            Danh sách đăng ký tiêm
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ URL::to('/admin/register_tiem/add') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tạo bài viết</p>
+                            </a>
+                        </li>
+                         <li class="nav-item">
+                            <a href="{{ URL::to('admin/register_tiem/list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách người tiêm</p>
+                            </a>
+                        </li>
+                    </ul>
+                  </li>
+                </ul>
           </nav>
           <!-- /.sidebar-menu -->
       </div>

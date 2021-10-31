@@ -10,6 +10,6 @@
   <link rel="stylesheet" href="/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/template/dist/css/adminlte.min.css">
-
+  <link rel="stylesheet" href="/template/dist/css/main.css">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   @yield('head')
