@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\RegisterTiemController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\MainController as Main;
 use App\Http\Controllers\Admin\Users\LoginController;
@@ -70,5 +71,12 @@ Route::middleware(['auth'])->group(function () {
 
         # upload image
         Route::post('upload/services', [UpImgController::class, 'store']);
+
+        # hiển thi danh sách đăng ký tiêm
+        Route::prefix('register_tiem')->group(function () {
+            Route::get('list',[RegisterTiemController::class,'index'])->name('list');
+        });
+       
+    });
    });
 });
