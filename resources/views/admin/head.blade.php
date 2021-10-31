@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="/template/plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Theme style -->
   <link rel="stylesheet" href="/template/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/frontend/css/form.css">
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
   @yield('head')

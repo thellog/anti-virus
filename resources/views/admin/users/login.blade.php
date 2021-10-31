@@ -6,60 +6,68 @@
 </head>
 
 <body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href=""><b>Admin</b></a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to the system</p>
-                @include('alert')
-                <form action="/admin/users/login/news" method="post">
-                    <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" placeholder="Email">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="/frontend/images/Vaccine-pana.png" width="100%">
+                </div>
+    
+                <div class="col-sm-6">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="Indication">
                         </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" name="remember" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
+                    @include('alert')
+                        <form id="LoginForm" action="/admin/users/login/news" method="post">
+                            <input type="email" name="email" placeholder="Email">
+                            <input type="password"  name="password"  placeholder="PassWord">
+                            <button type="submit"   class="btn btn-danger">Login</button>
+                            <a href="">Forgot password</a>
                     @csrf
-                </form>
-
-                <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
-                </p>
-                <p class="mb-0">
-                    <a href="register.html" class="text-center">Register a new membership</a>
-                </p>
+                        </form>
+    
+                        <form id="RegForm" >
+                            <input type="text" placeholder="UserName">
+                            <input type="email" placeholder="Email">
+                            <input type="password" placeholder="PassWord">
+                            <button type="submit" class="btn btn-danger">Register</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <!-- /.login-card-body -->
         </div>
     </div>
+    
+    
+    
+    
+    <!--js for toggle form head-->
+    <script>
+        var LoginForm = document.getElementById("LoginForm");
+        var RegForm = document.getElementById("RegForm");
+        var Indication = document.getElementById("Indication");
+    
+       function register(){
+           RegForm.style.transform = "translateX(0px)";
+           LoginForm.style.transform = "translateX(0px)";
+           Indication.style.transform = "translateX(100px)";
+       }
+       function login(){
+           RegForm.style.transform = "translateX(300px)";
+           LoginForm.style.transform = "translateX(300px)";
+           Indication.style.transform = "translateX(0px)";
+       }
+    
+    </script>
+    
+    
+    <!--js for toggle form back-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 @include('admin.footer')
 </html>
