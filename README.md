@@ -17,3 +17,6 @@ Models: News-> category().
 #3. Upload ảnh
 Tạo một symbolic link giữa storage và public để load ảnh
 < php artisan storage:link >
+
+# Upload giao diện mới
+- Các folder của template ở public/frontend/...

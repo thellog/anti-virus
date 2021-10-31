@@ -3,12 +3,11 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    @include('head')
+    @include('layout.head')
 </head>
 
 <body id="insert-bg">
-@include('header')
-@include('menu')
+@include('layout.menu')
 <div class="container" style="margin-top:100px">
     @if(Session::has('success'))
     <div class="alert alert-success">
@@ -151,7 +150,7 @@
         </div>
     </form>
 </div>
-@include('footer')
+@include('layout.footer')
 </body>
 <!--/ Intro Single End /-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
