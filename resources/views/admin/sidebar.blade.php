@@ -93,12 +93,6 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ URL::to('/admin/register_tiem/add') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Tạo bài viết</p>
-                            </a>
-                        </li>
-                         <li class="nav-item">
                             <a href="{{ URL::to('admin/register_tiem/list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách người tiêm</p>

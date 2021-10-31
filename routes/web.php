@@ -76,7 +76,5 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('register_tiem')->group(function () {
             Route::get('list',[RegisterTiemController::class,'index'])->name('list');
         });
-       
     });
    });
-});
