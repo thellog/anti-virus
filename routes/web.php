@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UpImgController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,7 @@ use App\Http\Controllers\Insert\InsertController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', [Main::class, 'index']);
 
@@ -33,7 +35,6 @@ Route::post('admin/users/login/news', [LoginController::class, 'news']);
 Route::get('dk_tiem/insert',[InsertController::class, 'index']);
 Route::get('getDistrict',[InsertController::class, 'getDistrict'])->name('getDistrict');
 Route::get('getWard',[InsertController::class, 'getWard'])->name('getWard');
-
 
 Route::middleware(['auth'])->group(function () {
     # Tao group cho admin
@@ -70,11 +71,12 @@ Route::middleware(['auth'])->group(function () {
 
         # upload image
         Route::post('upload/services', [UpImgController::class, 'store']);
-         
+
         # hiển thi danh sách đăng ký tiêm
         Route::prefix('register_tiem')->group(function () {
             Route::get('list',[RegisterTiemController::class,'index'])->name('list');
         });
        
     });
+   });
 });
