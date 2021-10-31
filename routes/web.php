@@ -4,11 +4,11 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RegisterTiemController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\MainController as Main;
-use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UpImgController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +21,15 @@ use App\Http\Controllers\Insert\InsertController;
 |
 */
 
+Route::prefix('/')->group(function(){
+  Route::get('/', [Main::class, 'index']);
+  Route::get('login', [Main::class, 'login'])->name('login');
+  Route::post('login/store', [Main::class, 'store']);
+});
 
-Route::get('/', [Main::class, 'index']);
-
-Route::get('admin/users/login', [LoginController::class, 'login'])->name('login');
-Route::post('admin/users/login/news', [LoginController::class, 'news']);
+Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::post('login/store', [LoginController::class, 'store'])->name('login-store');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 //router get post trang dk tiem
  Route::get('dk_tiem/insert', [InsertController::class, 'view']);
