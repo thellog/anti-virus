@@ -70,21 +70,21 @@ class InsertController extends Controller
         ]);
 
 
-        $imfo = new Imformation;
-        $imfo->name = $request->name;
-        $imfo->sex = $request->sex;
-        $imfo->birthday = $request->birthday;
-        $imfo->phone = $request->phone;
-        $imfo->cccd = $request->cccd;
-        $imfo->bhyt = $request->bhyt;
-        $imfo->tiensubenh = $request->tiensubenh;
-        $imfo->muitiem = $request->muitiem;
-        $imfo->vacxin = $request->vacxin;
-        $imfo->province_id  = $request->province_id;
-        $imfo->district_id = $request->district_id;
-        $imfo->ward_id = $request->ward_id;
+        $info = new Imformation;
+        $info->name = $request->name;
+        $info->sex = $request->sex;
+        $info->birthday = $request->birthday;
+        $info->phone = $request->phone;
+        $info->cccd = $request->cccd;
+        $info->bhyt = $request->bhyt;
+        $info->tiensubenh = $request->tiensubenh;
+        $info->muitiem = $request->muitiem;
+        $info->vacxin = $request->vacxin;
+        $info->province_id  = $request->province_id;
+        $info->district_id = $request->district_id;
+        $info->ward_id = $request->ward_id;
 
-        $imfo->save();
+        $info->save();
         return redirect('dk_tiem/insert')->with('success', 'Đăng ký tiêm thành công! Chúc mừng bạn');
     }
 }

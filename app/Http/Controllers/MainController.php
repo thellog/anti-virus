@@ -11,4 +11,10 @@ class MainController extends Controller
       'title' => 'Anti-Covid'
     ]);
   }
+
+  public function contact(){
+    return view('home.contact', [
+      'title' => 'Liên hệ'
+    ]);
+  }
 }
