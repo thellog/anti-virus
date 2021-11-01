@@ -21,10 +21,9 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::prefix('/')->group(function(){
-  Route::get('/', [Main::class, 'index'])->name('/');
-  Route::get('login', [Main::class, 'login'])->name('login');
-  Route::post('login/store', [Main::class, 'store']);
+Route::prefix('/')->group(function () {
+    Route::get('/', [Main::class, 'index'])->name('/');
+    Route::get('contact', [Main::class, 'contact'])->name('contact-us');
 });
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
@@ -32,13 +31,13 @@ Route::post('login/store', [LoginController::class, 'store'])->name('login-store
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 //router get post trang dk tiem
- Route::get('dk_tiem/insert', [InsertController::class, 'view']);
- Route::post('dk_tiem/insert', [InsertController::class, 'create'])->name('dk_tiem/insert');
+Route::get('dk_tiem/insert', [InsertController::class, 'view']);
+Route::post('dk_tiem/insert', [InsertController::class, 'create'])->name('inject-register');
 
 //router ajax trang dk tiem
-Route::get('dk_tiem/insert',[InsertController::class, 'index']);
-Route::get('getDistrict',[InsertController::class, 'getDistrict'])->name('getDistrict');
-Route::get('getWard',[InsertController::class, 'getWard'])->name('getWard');
+Route::get('dk_tiem/insert', [InsertController::class, 'index']);
+Route::get('getDistrict', [InsertController::class, 'getDistrict'])->name('getDistrict');
+Route::get('getWard', [InsertController::class, 'getWard'])->name('getWard');
 
 Route::middleware(['auth', 'admin'])->group(function () {
     # Tao group cho admin
@@ -78,7 +77,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
         # hiển thi danh sách đăng ký tiêm
         Route::prefix('register_tiem')->group(function () {
-            Route::get('list',[RegisterTiemController::class,'index'])->name('list');
+            Route::get('list', [RegisterTiemController::class, 'index'])->name('list');
         });
     });
-   });
+});

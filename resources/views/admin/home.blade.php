@@ -1,5 +1,5 @@
 @extends('admin.main')
 
 @section('content')
-  Hello World
+  Chỗ này sẽ làm cái gì ???
 @endsection
