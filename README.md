@@ -20,3 +20,5 @@ Tạo một symbolic link giữa storage và public để load ảnh
 
 # Upload giao diện mới
 - Các folder của template ở public/frontend/...
+
+# Update gitignore
