@@ -9,4 +9,5 @@
 <script src="/frontend/assets/js/jquery.easeScroll.js"></script>
 <!-- End custom js for this page-->
 <!--If you have more scripts-->
+<script src="/frontend/js/fetchAPI.js"></script>
 @yield('scripts')

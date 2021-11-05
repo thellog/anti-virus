@@ -26,11 +26,11 @@
                                  <li class="nav-item">
                                      <a class="nav-link" href="{{ route('inject-register') }}">Đăng kí tiêm chủng</a>
                                  </li>
-                
+
                                  <li class="nav-item">
                                      <a class="nav-link" href="{{ route('/') }}">Khai báo y tế</a>
-                                </li>
-                
+                                 </li>
+
                                  <li class="nav-item">
                                      <a class="nav-link" href="{{ route('contact-us') }}">Kết nối</a>
                                  </li>

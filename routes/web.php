@@ -6,9 +6,11 @@ use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\MainController as Main;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UpImgController;
+use App\Http\Controllers\Category\CategoryController as CategoryCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\News\NewsController as NewsNewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,7 @@ use App\Http\Controllers\LoginController;
 Route::prefix('/')->group(function () {
     Route::get('/', [Main::class, 'index'])->name('/');
     Route::get('contact', [Main::class, 'contact'])->name('contact-us');
+    Route::get('/', [NewsNewsController::class, 'index'])->name('/');
 });
 
 Route::get('login', [LoginController::class, 'login'])->name('login');

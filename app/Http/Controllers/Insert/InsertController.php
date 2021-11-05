@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Insert;
 use App\Models\Imformation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\MessageBag;
 
 class InsertController extends Controller
 {
     public function view()
+
     {
         return view('dk_tiem/insert');
     }
