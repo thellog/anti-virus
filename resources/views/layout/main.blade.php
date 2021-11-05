@@ -15,13 +15,26 @@
                 <div class="container-fluid">
                     <div class="d-lg-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
-                            <span class="badge badge-dark mr-3">Hôm nay có gì ?</span>
-                            <p class="mb-0">Con số gì đây con số gì đây.
-                            </p>
+                            <span class="badge badge-dark mr-3">Việt Nam</span>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">SỐ CA NHIỄM</th>
+                                        <th scope="col" style="background-color: red;">TỬ VONG</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" id="cases">1</th>
+                                        <td id="deaths">Mark</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                         <div class="d-flex">
-                            <span class="mr-3 text-danger">Thứ tư, Tháng Mười 4, 2021</span>
-                            <span class="text-danger">27°C, Tây Nguyên đầy lắng và gió</span>
+                            <span class="mr-2 text-danger"><span id="thu"></span>,&nbsp;Ngày <span id="ngay"></span>,
+                                Tháng <span id="thang"></span>,&nbsp;Năm <span id="nam"></span></span>
+                            <span class="text-danger" id="now">- Chúc bạn có một ngày làm việc vui vẻ !!!!</span>
                         </div>
                     </div>
                 </div>
@@ -47,6 +60,10 @@
                 </div>
             </div>
             @include('layout.scripts')
+            <script>
+                fetchCovid();
+                dateTime();
+            </script>
 </body>
 
 </html>

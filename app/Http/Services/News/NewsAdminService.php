@@ -18,6 +18,16 @@ class NewsAdminService
         return News::with('category')->orderByDesc('id')->paginate(15);
     }
 
+    public function getHotNews()
+    {
+        return News::with('category')->where('category_id', 2)->take(1)->get();
+    }
+
+    public function getLatesttNews()
+    {
+        return News::with('category')->where('category_id', 1)->take(6)->get();
+    }
+
     public function insert($request)
     {
         try {
