@@ -49,9 +49,8 @@
                   <h3 class="card-title">{{ $title }}</h3>
                 </div>
 
-                @yield('chart-1')
+                @yield('content')
 
-                @yield('chart-2')
               </div>
               <!-- /.card -->
             </div>
