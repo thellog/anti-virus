@@ -30,6 +30,11 @@ class CategoryService
         return Category::where('parent_id', 0)->get();
     }
 
+    public function get()
+    {
+        return Category::orderbyDesc('id')->get();
+    }
+
     public function getAll()
     {
         return Category::orderbyDesc('id')->paginate('20');

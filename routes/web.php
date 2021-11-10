@@ -4,11 +4,14 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RegisterTiemController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\MainController as Main;
-use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UpImgController;
+use App\Http\Controllers\Category\CategoryController as CategoryCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
+use App\Http\Controllers\Health_Declaration\Health_DeclarationController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\News\NewsController as NewsNewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +24,31 @@ use App\Http\Controllers\Insert\InsertController;
 |
 */
 
+Route::prefix('/')->group(function () {
+    Route::get('/', [Main::class, 'index'])->name('/');
+    Route::get('contact', [Main::class, 'contact'])->name('contact-us');
+    Route::get('/', [NewsNewsController::class, 'index'])->name('/');
+});
 
-Route::get('/', [Main::class, 'index']);
-
-Route::get('admin/users/login', [LoginController::class, 'login'])->name('login');
-Route::post('admin/users/login/news', [LoginController::class, 'news']);
+Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::post('login/store', [LoginController::class, 'store'])->name('login-store');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 //router get post trang dk tiem
- Route::get('dk_tiem/insert', [InsertController::class, 'view']);
- Route::post('dk_tiem/insert', [InsertController::class, 'create'])->name('dk_tiem/insert');
+Route::get('dk_tiem/insert', [InsertController::class, 'view']);
+Route::post('dk_tiem/insert', [InsertController::class, 'create'])->name('inject-register');
 
 //router ajax trang dk tiem
-Route::get('dk_tiem/insert',[InsertController::class, 'index']);
-Route::get('getDistrict',[InsertController::class, 'getDistrict'])->name('getDistrict');
-Route::get('getWard',[InsertController::class, 'getWard'])->name('getWard');
+Route::get('dk_tiem/insert', [InsertController::class, 'index']);
+Route::get('getDistrict', [InsertController::class, 'getDistrict'])->name('getDistrict');
+Route::get('getWard', [InsertController::class, 'getWard'])->name('getWard');
 
-Route::middleware(['auth'])->group(function () {
+//router get post khai báo y tế
+Route::get('khaibao/khaibao', [Health_DeclarationController::class, 'view'])->name('khaibao/khaibao');
+//Route::post('khaibao/insert', [InsertController::class, 'create'])->name('inject-register');
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
     # Tao group cho admin
     Route::prefix('admin')->group(function () {
         # ~ admin
@@ -74,7 +86,7 @@ Route::middleware(['auth'])->group(function () {
 
         # hiển thi danh sách đăng ký tiêm
         Route::prefix('register_tiem')->group(function () {
-            Route::get('list',[RegisterTiemController::class,'index'])->name('list');
+            Route::get('list', [RegisterTiemController::class, 'index'])->name('list');
         });
     });
-   });
+});
