@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UpImgController;
 use App\Http\Controllers\Category\CategoryController as CategoryCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
+use App\Http\Controllers\Health_Declaration\Health_DeclarationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\News\NewsController as NewsNewsController;
 
@@ -41,6 +42,11 @@ Route::post('dk_tiem/insert', [InsertController::class, 'create'])->name('inject
 Route::get('dk_tiem/insert', [InsertController::class, 'index']);
 Route::get('getDistrict', [InsertController::class, 'getDistrict'])->name('getDistrict');
 Route::get('getWard', [InsertController::class, 'getWard'])->name('getWard');
+
+//router get post khai báo y tế
+Route::get('khaibao/khaibao', [Health_DeclarationController::class, 'view'])->name('khaibao/khaibao');
+//Route::post('khaibao/insert', [InsertController::class, 'create'])->name('inject-register');
+
 
 Route::middleware(['auth', 'admin'])->group(function () {
     # Tao group cho admin
