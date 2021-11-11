@@ -17,11 +17,23 @@
         @endphp
     </div>
     @endif
-
+     <div class="container" style="margin-top:-80px">
+           <div class="row">
+            <div class="col-12 text-right pt-1 pr-2 d-none">
+            </div>
+            <div class="col-12 text-center text-uppercase mt-1">
+                <span class="text-title">
+                    <span class="text_donvi_ten" style="color:#0056c1"><h3> ĐĂNG KÝ TIÊM CHỦNG LÀ QUYỀN LỢI CỦA MỖI NGƯỜI </h3></span>
+                </span>
+                <span class="text-note d-block mt-1 text_subtitle text-danger"><h5>Khai báo thông tin sai là vi phạm pháp luật Việt Nam và có thể xử lý hình sự</h5></span>
+            </div>
+        </div>
+        </div>
+        <br>
     <form method="post" action="">
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <div class="form-row">
-
+        
             <div class="form-group col-md-4">
                 <label>Họ và tên</label>
                 <input value="{{old('name')}}" type="text" name="name" class="form-control" placeholder="Họ và tên">
