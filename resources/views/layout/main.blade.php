@@ -42,6 +42,8 @@
       <div class="content-wrapper">
         <div class="container-fluid">
 
+          @yield('content')
+
           <!-- Tin hot -->
           @include('layout.hotnews')
 

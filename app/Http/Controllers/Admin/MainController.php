@@ -3,29 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\User;
-use Illuminate\Support\Facades\DB;
+use App\Http\Services\News\NewsAdminService;
 
 class MainController extends Controller
 {
+
+  protected $newService;
+
+  public function __construct(NewsAdminService $newsAdminService)
+  {
+    $this->newService = $newsAdminService;
+  }
+
   public function index()
   {
-    $users = User::select(DB::raw("COUNT(*) as count"))
-      ->whereYear('created_at', date("Y"))
-      ->groupBy(DB::raw("Month(created_at)"))
-      ->pluck('count');
-
-    $months = User::select(DB::raw("Month(created_at) as month"))
-      ->whereYear('created_at', date("Y"))
-      ->groupBy(DB::raw("Month(created_at)"))
-      ->pluck('month');
-
-    $data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    foreach ($months as $key => $month) {
-      --$month;
-      $data[$month] = $users[$key];
-    }
-
+    $data = $this->newService->getUserData();
     return view('admin.home', [
       'title' => 'Admin homepage',
       'data' => $data
