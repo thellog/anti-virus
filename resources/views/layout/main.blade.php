@@ -47,10 +47,10 @@
 
           @yield('content')
           <!-- footer -->
-          @include('layout.footer')
           <!-- footer -->
         </div>
       </div>
+      @include('layout.footer')
       @include('layout.scripts')
       <script>
         fetchCovid();
