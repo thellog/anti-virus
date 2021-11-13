@@ -35,10 +35,10 @@ Route::prefix('/')->group(function () {
     Route::get('/', [Main::class, 'index'])->name('/');
     Route::get('contact', [Main::class, 'contact'])->name('contact-us');
 
-    Route::get('/', [PageController::class, 'getCategory']);
-    //route news
-    Route::get('/', [PageController::class, 'getNewLates'])->name('/');
-    Route::get('category/{id}', 'PageController@getBycategory');
+  Route::get('/', [PageController::class, 'getCategory']);
+  //route news
+  Route::get('/', [PageController::class, 'getNewLates'])->name('/');
+  Route::get('category/{id}', 'PageController@getBycategory');
 });
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
