@@ -10,7 +10,7 @@ use App\Http\Controllers\Category\CategoryController as CategoryCategoryControll
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\News\NewsController as NewsNewsController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +23,16 @@ use App\Http\Controllers\News\NewsController as NewsNewsController;
 |
 */
 
+Route::get('test', [PageController::class, 'getNewLates']);
+
 Route::prefix('/')->group(function () {
     Route::get('/', [Main::class, 'index'])->name('/');
     Route::get('contact', [Main::class, 'contact'])->name('contact-us');
-    Route::get('/', [NewsNewsController::class, 'index'])->name('/');
+
+    Route::get('/', [PageController::class, 'getCategory']);
+    //route news
+    Route::get('/', [PageController::class, 'getNewLates'])->name('/');
+    Route::get('category/{id}', 'PageController@getBycategory');
 });
 
 Route::get('login', [LoginController::class, 'login'])->name('login');

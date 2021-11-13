@@ -26,6 +26,7 @@ class MainController extends Controller
       $data[$month] = $users[$key];
     }
 
+
     return view('admin.home', [
       'title' => 'Admin homepage',
       'data' => $data

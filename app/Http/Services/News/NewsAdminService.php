@@ -18,15 +18,7 @@ class NewsAdminService
         return News::with('category')->orderByDesc('id')->paginate(15);
     }
 
-    public function getHotNews()
-    {
-        return News::with('category')->where('category_id', 2)->take(1)->get();
-    }
 
-    public function getLatesttNews()
-    {
-        return News::with('category')->where('category_id', 1)->take(6)->get();
-    }
 
     public function insert($request)
     {
@@ -60,5 +52,23 @@ class NewsAdminService
             return true;
         }
         return false;
+    }
+
+    public function getNews()
+    {
+        return News::with('category')->orderByDesc('id')->get();
+    }
+    public function getHotNews()
+    {
+        return News::with('category')->where('category_id', 2)->take(1)->get();
+    }
+
+    public function getLatesttNews()
+    {
+        return News::with('category')->orderByDesc('updated_at')->take(4)->get();
+    }
+    public function getByCategory($id)
+    {
+        return News::with('category')->where('category_id', $id)->get();
     }
 }
