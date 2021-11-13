@@ -23,3 +23,4 @@ Tạo một symbolic link giữa storage và public để load ảnh
 
 # Update gitignore
 .
+.

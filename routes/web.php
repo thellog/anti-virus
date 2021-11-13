@@ -54,7 +54,6 @@ Route::get('dangkytiem/dangky', [InsertController::class, 'index']);
 Route::get('getDistrict', [InsertController::class, 'getDistrict'])->name('getDistrict');
 Route::get('getWard', [InsertController::class, 'getWard'])->name('getWard');
 
-
 //router get post trang  khai báo y tế
 Route::get('khaibaoyte/khaibao', [Health_DeclarationController::class, 'view']);
 Route::post('khaibaoyte/khaibao', [Health_DeclarationController::class, 'create'])->name('khaibaoyte/khaibao');
