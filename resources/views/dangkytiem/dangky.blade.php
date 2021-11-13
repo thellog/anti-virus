@@ -2,22 +2,14 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     @include('layout.head')
 </head>
 
-<body id="insert-bg">
+<body>
 @include('layout.menu')
-<div class="container" style="margin-top:100px">
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        {{ Session::get('success') }}
-        @php
-        Session::forget('success');
-        @endphp
-    </div>
-    @endif
-     <div class="container" style="margin-top:-80px">
+
+     <div class="container" >
            <div class="row">
             <div class="col-12 text-right pt-1 pr-2 d-none">
             </div>
@@ -28,14 +20,24 @@
                 <span class="text-note d-block mt-1 text_subtitle text-danger"><h5>Khai báo thông tin sai là vi phạm pháp luật Việt Nam và có thể xử lý hình sự</h5></span>
             </div>
         </div>
-        </div>
+      
         <br>
+
     <form method="post" action="">
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <div class="form-row">
-        
+            <div class="form-group col-md-12">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                    @php
+                    Session::forget('success');
+                    @endphp
+                    </div>
+                    @endif
+            </div>
             <div class="form-group col-md-4">
-                <label>Họ và tên</label>
+                <label>Họ và tên</label><span class="text-danger">(*)</span>:
                 <input value="{{old('name')}}" type="text" name="name" class="form-control" placeholder="Họ và tên">
                 @error('name')
                 <p style="color:red">{{$message}}</p>
@@ -43,7 +45,7 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label>Giới tính</label>
+                <label>Giới tính</label><span class="text-danger">(*)</span>:
                 <select class="form-control" name="sex">
                     <option value="" disabled selected>Giới tính</option>
                     <option {{ old('sex') == 'Nam' ? 'selected' : '' }}>Nam</option>
@@ -55,7 +57,7 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label>Ngày sinh</label>
+                <label>Ngày sinh</label><span class="text-danger">(*)</span>:
                 <input type="date" name="birthday" class="form-control" placeholder="Ngày sinh" value="{{old('birthday')}}">
                 @error('birthday')
                 <p style="color:red">{{$message}}</p>
@@ -63,13 +65,12 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label for="">Tỉnh/Thành phố</label>
+                <label for="">Tỉnh/Thành phố</label><span class="text-danger">(*)</span>:
                 <select class="form-control" name="province_id" id="province">
                     <option value="" selected disabled>Tỉnh/Thành phố</option>
                     @foreach($provinces as $key => $province)
                     <option value="{{$key}}"> {{$province}}</option>
                     @endforeach
-
                 </select>
                 @error('province_id')
                 <p style="color:red">{{$message}}</p>
@@ -77,7 +78,7 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label for="">Quận/huyện</label>
+                <label for="">Quận/huyện</label><span class="text-danger">(*)</span>:
                 <select class="form-control" name="district_id" id="district" data-old="{{old('district_id')}}">
                     <option value="" selected disabled>Quận/huyện</option>
 
@@ -88,7 +89,7 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label for="">Phường/Xã</label>
+                <label for="">Phường/Xã</label><span class="text-danger">(*)</span>:
                 <select class="form-control" name="ward_id" id="ward">
                     <option value="" selected disabled>Phường/Xã</option>
                 </select>
@@ -98,7 +99,7 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label for="">Số điện thoại liên lạc</label>
+                <label for="">Số điện thoại liên lạc</label><span class="text-danger">(*)</span>:
                 <input type="number" name="phone" class="form-control" placeholder="Số điện thoại" value="{{old('phone')}}">
                 @error('phone')
                 <p style="color:red">{{$message}}</p>
@@ -106,7 +107,7 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label for="">CMND/CCCD</label>
+                <label for="">CMND/CCCD</label><span class="text-danger">(*)</span>:
                 <input type="number" name="cccd" class="form-control" placeholder="CMND/CCCD" value="{{old('cccd')}}">
                 @error('cccd')
                 <p style="color:red">{{$message}}</p>
@@ -120,7 +121,7 @@
 
             <div class="form-group col-md-6">
                 <div class="form-group">
-                    <label>Đăng kí mũi tiêm</label>
+                    <label>Đăng kí mũi tiêm</label><span class="text-danger">(*)</span>:
                     <select class="form-control" name="muitiem">
                         <option value="" selected disabled>Chọn mũi tiêm</option>
                         <option {{ old('muitiem') == 'Mũi thứ 1' ? 'selected' : '' }}>Mũi thứ 1</option>
@@ -133,10 +134,10 @@
             </div>
             <div class="form-group col-md-6">
                 <div class="form-group">
-                    <label>Loại vacxin muốn tiêm</label>
+                    <label>Loại vacxin muốn tiêm</label><span class="text-danger">(*)</span>:
                     <select class="form-control" name="vacxin">
                         <option value="" selected disabled>Chọn loại vacxin</option>
-                        <option {{ old('vacxin') == 'Vaccine AstraZeneca (Anh)' ? 'selected="selected"' : '' }}>Vaccine AstraZeneca (Anh)</option>
+                        <option {{ old('vacxin') == 'Vaccine AstraZeneca (Anh)' ? 'selected' : '' }}>Vaccine AstraZeneca (Anh)</option>
                         <option {{ old('vacxin') == 'Vaccine Moderna (Mỹ)' ? 'selected' : '' }}>
                             Vaccine Moderna (Mỹ)</option>
                         <option {{ old('vacxin') == 'Vaccine Gam-Covid-Vac (Nga)' ? 'selected' : '' }}>Vaccine Gam-Covid-Vac (Nga)</option>
@@ -152,12 +153,14 @@
 
             <div class="form-group col-md-12">
                 <label for="">Tiền sử bệnh(nếu có)</label>
-                <textarea type="text-area" rows="3" name="tiensubenh" class="form-control"> {{old('tiensubenh')}}</textarea>
+                <textarea type="text-area" style="height: 80px" name="tiensubenh" class="form-control" placeholder="Nhập đầy đủ tiền sử bệnh nếu có">{{old('tiensubenh')}}</textarea>
             </div>
 
-            <button name="submit" class="btn btn-success"> Đăng ký tiêm</button>
-
-            <div class="form-group col-md-12" style="color:red">Lưu ý: Đăng thông tin đúng sự thật</div>
+         
+                <div class="col-12 my-3 text-center">
+                    <div block-bind="toolbar"><div class="toolbar"><div class="btn-group toolbar-group w-50">
+                        <button name="submit" class="btn btn-success">Đăng ký tiêm</button></div></div></div>
+                </div>
 
         </div>
     </form>
@@ -165,7 +168,8 @@
 @include('layout.footer')
 </body>
 <!--/ Intro Single End /-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@include('layout.scripts')
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 <script type=text/javascript>
     $('#province').change(function() {
         var provinceID = $(this).val();
@@ -222,3 +226,5 @@
 </script>
 
 </html>
+
+

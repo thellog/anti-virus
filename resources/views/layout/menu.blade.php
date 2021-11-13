@@ -30,7 +30,7 @@
                    <a class="nav-link" href="{{ route('/') }}">Khai báo y tế</a>
                  </li>
                                  <li class="nav-item">
-                                     <a class="nav-link" href="{{ route('khaibao/khaibao') }}">Khai báo y tế</a>
+                                     <a class="nav-link" href="{{ route('khaibaoyte/khaibao') }}">Khai báo y tế</a>
                                  </li>
                  <li class="nav-item">
                    <a class="nav-link" href="{{ route('contact-us') }}">Kết nối</a>

@@ -45,17 +45,9 @@
           @yield('content')
 
           <!-- Tin hot -->
-          @include('layout.hotnews')
+          @yield('hotnews')
 
-          <!--Category and flash new-->
-          @include('layout.category-flashnew')
-
-          <!--Video-->
-          @include('layout.video')
-
-          <!--Spot light-->
-          @include('layout.spot-light')
-
+          @yield('content')
           <!-- footer -->
           @include('layout.footer')
           <!-- footer -->

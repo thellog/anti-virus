@@ -13,13 +13,13 @@ class InsertController extends Controller
     public function view()
 
     {
-        return view('dk_tiem/insert');
+        return view('dangkytiem/dangky');
     }
 
     public function index()
     {
         $provinces = DB::table("province")->pluck("provinceName", "province_id");
-        return view('dk_tiem/insert', compact('provinces'));
+        return view('dangkytiem/dangky', compact('provinces'));
     }
 
     public function getDistrict(Request $request)
@@ -86,6 +86,6 @@ class InsertController extends Controller
         $info->ward_id = $request->ward_id;
 
         $info->save();
-        return redirect('dk_tiem/insert')->with('success', 'Đăng ký tiêm thành công! Chúc mừng bạn');
+        return redirect('dangkytiem/dangky')->with('success', 'Đăng ký tiêm thành công! Chúc mừng bạn');
     }
 }
