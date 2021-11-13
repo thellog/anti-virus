@@ -82,30 +82,18 @@ class NewsAdminService
       $data[$month] = $users[$key];
     }
 
-<<<<<<< HEAD
     return $data;
   }
 
   public function getInjectData()
   {
   }
-=======
     public function getNews()
     {
         return News::with('category')->orderByDesc('id')->get();
-    }
-    public function getHotNews()
-    {
-        return News::with('category')->where('category_id', 2)->take(1)->get();
-    }
-
-    public function getLatesttNews()
-    {
-        return News::with('category')->orderByDesc('updated_at')->take(4)->get();
     }
     public function getByCategory($id)
     {
         return News::with('category')->where('category_id', $id)->get();
     }
->>>>>>> master
 }

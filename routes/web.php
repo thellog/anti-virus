@@ -11,12 +11,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
 use App\Http\Controllers\Health_Declaration\Health_DeclarationController;
 use App\Http\Controllers\LoginController;
-<<<<<<< HEAD
 use App\Http\Controllers\News\NewsController as NewsNewsController;
 use Symfony\Component\Routing\Route as RoutingRoute;
-=======
 use App\Http\Controllers\PageController;
->>>>>>> master
 
 /*
 |--------------------------------------------------------------------------
