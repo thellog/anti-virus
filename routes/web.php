@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UpImgController;
 use App\Http\Controllers\Category\CategoryController as CategoryCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
+use App\Http\Controllers\Health_Declaration\Health_DeclarationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 
@@ -40,13 +41,23 @@ Route::post('login/store', [LoginController::class, 'store'])->name('login-store
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 //router get post trang dk tiem
-Route::get('dk_tiem/insert', [InsertController::class, 'view']);
-Route::post('dk_tiem/insert', [InsertController::class, 'create'])->name('inject-register');
+Route::get('dangkytiem/dangky', [InsertController::class, 'view']);
+Route::post('dangkytiem/dangky', [InsertController::class, 'create'])->name('inject-register');
 
 //router ajax trang dk tiem
-Route::get('dk_tiem/insert', [InsertController::class, 'index']);
+Route::get('dangkytiem/dangky', [InsertController::class, 'index']);
 Route::get('getDistrict', [InsertController::class, 'getDistrict'])->name('getDistrict');
 Route::get('getWard', [InsertController::class, 'getWard'])->name('getWard');
+
+
+//router get post trang  khai báo y tế
+Route::get('khaibaoyte/khaibao', [Health_DeclarationController::class, 'view']);
+Route::post('khaibaoyte/khaibao', [Health_DeclarationController::class, 'create'])->name('khaibaoyte/khaibao');
+
+//router ajax trang khai báo y tế
+Route::get('khaibaoyte/khaibao', [Health_DeclarationController::class, 'index']);
+Route::get('getDistrict', [Health_DeclarationController::class, 'getDistrict'])->name('getDistrict');
+Route::get('getWard', [Health_DeclarationController::class, 'getWard'])->name('getWard');
 
 Route::middleware(['auth', 'admin'])->group(function () {
     # Tao group cho admin
