@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Insert\InsertController;
 use App\Http\Controllers\Health_Declaration\Health_DeclarationController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\News\NewsController as NewsNewsController;
+use Symfony\Component\Routing\Route as RoutingRoute;
 use App\Http\Controllers\PageController;
 
 /*
@@ -28,7 +30,10 @@ Route::get('test', [PageController::class, 'getNewLates']);
 
 Route::prefix('/')->group(function () {
   Route::get('/', [Main::class, 'index'])->name('/');
+  Route::get('/', [NewsNewsController::class, 'index'])->name('/');
   Route::get('contact', [Main::class, 'contact'])->name('contact-us');
+    Route::get('/', [Main::class, 'index'])->name('/');
+    Route::get('contact', [Main::class, 'contact'])->name('contact-us');
 
   Route::get('/', [PageController::class, 'getCategory']);
   //route news
