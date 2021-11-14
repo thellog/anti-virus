@@ -34,7 +34,7 @@
                             <h5>{{$nl->name}}</h5>
                         </a>
                         <div class="fs-12">
-                            <span class="mr-2">Photo </span>10 Minutes ago
+                            <span class="mr-2">Photo </span>{{ $nl->created_at->diffForHumans() }}
                         </div>
                     </div>
                     <div class="rotate-img">
@@ -89,7 +89,7 @@
                         <h2 class="mb-2 font-weight-600">
                         </h2>
                         <div class="fs-13 mb-2">
-                            <span class="mr-2">Photo </span>10 Minutes ago
+                            <span class="mr-2">Photo </span>{{ $ns->created_at->diffForHumans() }}
                         </div>
                         <p class="mb-0">
                             <a href="" style="text-decoration: none;"> {{$ns->name}}</a>
