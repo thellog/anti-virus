@@ -18,6 +18,7 @@ class CreateNewsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->longText('content');
+            $table->boolean('isHot')->nullable()->default(0);
             $table->integer('category_id');
             $table->string('thumb');
             $table->timestamps();

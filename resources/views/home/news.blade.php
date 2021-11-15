@@ -4,25 +4,27 @@
 
 <div class="row" data-aos="fade-up">
     <div class="col-xl-8 stretch-card grid-margin">
-        <div class="position-relative">
-            <img src="" alt="1450x820" class="img-fluid" />
+        <div class="position-relative"> @foreach ($newsHot as $nh)
+            <img src="{{$nh->thumb}}" alt="1450x820" class="img-fluid" />
 
             <div class="banner-content">
 
                 <div class="badge badge-danger fs-12 font-weight-bold mb-3">
-                    tin hot
+                    {{$nh->category->name}}
                 </div>
-                <h1 class="mb-0"></h1>
+
+
+                <h1 class="mb-0"> {{$nh->name}}</h1>
                 <h1 class="mb-2">
                     <!-- Coronavirus Outbreak LIVE Updates: ICSE, CBSE Exams
                      Postponed, 168 Trains -->
                 </h1>
                 <div class="fs-12">
-                    <span class="mr-2">Photo </span>10 Minutes ago
+                    <span class="mr-2">Photo </span>{{ $nh->updated_at->diffForHumans() }}
                 </div>
 
             </div>
-
+            @endforeach
         </div>
     </div>
     <div class="col-xl-4 stretch-card grid-margin">
@@ -36,11 +38,11 @@
                             <h5>{{$nl->name}}</h5>
                         </a>
                         <div class="fs-12">
-                            <!-- <span class="mr-2">Photo </span>10 Minutes ago -->
+                            <span class="mr-2">Photo </span>{{ $nl->updated_at->diffForHumans() }}
                         </div>
                     </div>
                     <div class="rotate-img">
-                        <a href="#"> <img src="{{$nl->thumb}}" alt="thumb" class="img-fluid img-lg" /></a>
+                        <a href=""><img src="{{$nl->thumb}}" alt="thumb" class="img-fluid img-lg" /></a>
                     </div>
                 </div>
                 @endforeach
@@ -59,10 +61,12 @@
                     <li>
                         <a href="/category/{{$cate->id}}">{{$cate->name}}</a>
                     </li>
-                    <!-- <ul class="">
+                    @if($cate->id == $cate->parent_id)
+                    <ul class="">
 
                         <li style="list-style: none;"><a href="#">{{$cate->name}}</a></li>
-                    </ul> -->
+                    </ul>
+                    @endif
                     @endif
                     @endforeach
                 </ul>
@@ -87,9 +91,9 @@
                     </div>
                     <div class="col-sm-8  grid-margin">
                         <a class="mb-2 font-weight-600" href="" style="text-decoration: none;"> {{$cat->name}}</a>
-                        <!-- <div class="fs-13 mb-2">
-                        <span class="mr-2">Photo </span>10 Minutes ago
-                    </div> -->
+                        <div class="fs-13 mb-2">
+                            <span class="mr-2">Photo </span>{{$cat->updated_at->diffForHumans()}}
+                        </div>
                         <p class="mb-0">
                             {{$cat->description}}
                         </p>

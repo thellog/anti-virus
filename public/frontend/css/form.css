@@ -67,10 +67,10 @@ form .btn:focus {
     outline: none;
 }
 #LoginForm {
-    left: -300px;
+    left: 0px;
 }
 #RegForm {
-    left: 0;
+    left: -300px;
 }
 form a {
     font-size: 12px;
@@ -81,7 +81,7 @@ form a {
     background: #ff523b;
     height: 3px;
     margin: 8px;
-    transform: translateX(100px);
+    transform: translateX(0px);
     transition: transform 1s;
 }
 @media only screen and (max-width: 620px) {

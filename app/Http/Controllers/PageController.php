@@ -28,6 +28,7 @@ class PageController extends Controller
     public function getNewLates()
     {
         return view('home.hotnews', [
+            'newsHot' => $this->newsAdminService->getHotNews(),
             'newsLates' => $this->newsAdminService->getLatesttNews(),
             'category' => $this->newsAdminService->getAll(),
             'news' => $this->newsAdminService->getNews()
@@ -39,6 +40,7 @@ class PageController extends Controller
         return view(
             'home.news',
             [
+                'newsHot' => $this->newsAdminService->getHotNews(),
                 'categ' => $this->newsAdminService->getByCategory($id),
                 'newsLates' => $this->newsAdminService->getLatesttNews(),
                 'category' => $this->newsAdminService->getAll(),

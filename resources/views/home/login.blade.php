@@ -46,16 +46,16 @@
         var RegForm = document.getElementById("RegForm");
         var Indication = document.getElementById("Indication");
 
-        function register() {
+        function login() {
             RegForm.style.transform = "translateX(0px)";
             LoginForm.style.transform = "translateX(0px)";
-            Indication.style.transform = "translateX(100px)";
+            Indication.style.transform = "translateX(0px)";
         }
 
-        function login() {
+        function register() {
             RegForm.style.transform = "translateX(300px)";
             LoginForm.style.transform = "translateX(300px)";
-            Indication.style.transform = "translateX(0px)";
+            Indication.style.transform = "translateX(100px)";
         }
     </script>
     <!--js for toggle form head-->
