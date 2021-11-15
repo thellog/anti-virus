@@ -28,8 +28,7 @@
                             <a href="">Forgot password</a>
                             @csrf
                         </form>
-
-                        <form id="RegForm">
+                       <form id="LoginForm">
                             <input type="text" placeholder="UserName">
                             <input type="email" placeholder="Email">
                             <input type="password" placeholder="PassWord">
