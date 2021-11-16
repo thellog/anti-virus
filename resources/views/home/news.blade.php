@@ -100,6 +100,7 @@
                     </div>
                 </div>
                 @endforeach
+                {{$categ->links()}}
 
             </div>
         </div>

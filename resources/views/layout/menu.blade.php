@@ -4,7 +4,7 @@
        <div class="navbar-bottom">
          <div class="d-flex justify-content-between align-items-center">
            <div>
-             <a class="navbar-brand" href="{{ route('/') }}"><img src="/frontend/assets/images/logo.svg" alt="" /></a>
+             <a style="font-size: 30px;color:#fff" class="navbar-brand" href="{{ route('/') }}">Anti-CoVid</a>
            </div>
            <div>
              <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,11 +27,10 @@
                    <a class="nav-link" href="{{ route('inject-register') }}">Đăng kí tiêm chủng</a>
                  </li>
                  <li class="nav-item">
-                   <a class="nav-link" href="{{ route('/') }}">Khai báo y tế</a>
                  </li>
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="{{ route('khaibaoyte/khaibao') }}">Khai báo y tế</a>
-                                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="{{ route('khaibaoyte/khaibao') }}">Khai báo y tế</a>
+                 </li>
                  <li class="nav-item">
                    <a class="nav-link" href="{{ route('contact-us') }}">Kết nối</a>
                  </li>

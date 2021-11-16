@@ -10,6 +10,7 @@
 <!-- inject:css -->
 <link rel="stylesheet" href="/frontend/assets/css/style.css">
 
+
 <base href="{{asset('')}}">
 
 <!-- If you want more css -->

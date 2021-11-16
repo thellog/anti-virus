@@ -90,10 +90,10 @@ class NewsAdminService
   }
   public function getNews()
   {
-    return News::with('category')->orderByDesc('id')->get();
+    return News::with('category')->orderByDesc('id')->paginate(10);
   }
   public function getByCategory($id)
   {
-    return News::with('category')->where('category_id', $id)->get();
+    return News::with('category')->where('category_id', $id)->paginate(10);
   }
 }
