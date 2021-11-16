@@ -27,12 +27,6 @@
                    <a class="nav-link" href="{{ route('inject-register') }}">Đăng kí tiêm chủng</a>
                  </li>
                  <li class="nav-item">
-<<<<<<< HEAD
-=======
-                   <a class="nav-link" href="{{ route('/') }}">Tình hình Covid</a>
->>>>>>> 0efad33d8e411323810cc2804357c58d2f27c2ee
-                 </li>
-                 <li class="nav-item">
                    <a class="nav-link" href="{{ route('khaibaoyte/khaibao') }}">Khai báo y tế</a>
                  </li>
                  <li class="nav-item">

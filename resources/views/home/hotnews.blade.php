@@ -14,8 +14,7 @@
 
                 <h1 class="mb-0"> {{$nh->name}}</h1>
                 <h1 class="mb-2">
-                    <!-- Coronavirus Outbreak LIVE Updates: ICSE, CBSE Exams
-                     Postponed, 168 Trains -->
+                              {{ $nh->title }}
                 </h1>
                 <div class="fs-12">
                     <span class="mr-2">Photo </span>{{ $nh->updated_at->diffForHumans() }}
