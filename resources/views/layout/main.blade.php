@@ -42,12 +42,10 @@
       <div class="content-wrapper">
         <div class="container-fluid">
 
-
           <!-- Tin hot -->
           @yield('hotnews')
 
           @yield('content')
-          <!-- footer -->
           <!-- footer -->
         </div>
       </div>
