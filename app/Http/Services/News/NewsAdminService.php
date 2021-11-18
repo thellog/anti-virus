@@ -89,8 +89,18 @@ class NewsAdminService
   {
     return News::with('category')->orderByDesc('id')->simplePaginate(10);
   }
+
   public function getByCategory($id)
   {
     return News::with('category')->where('category_id', $id)->simplePaginate(10);
+  }
+
+  public function getNewsDetail($id)
+  {
+    return News::with('category')->where('id', $id)->get();
+  }
+  public function getPopular()
+  {
+    return News::with('category')->orderByDesc('id')->paginate(10);
   }
 }

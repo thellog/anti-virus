@@ -12,22 +12,26 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\News\NewsController as NewsNewsController;
 use Symfony\Component\Routing\Route as RoutingRoute;
 use App\Http\Controllers\MainController as Main;
+use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('test', [PageController::class, 'getNewLates']);
+// Route::get('test', [NewsPageController::class, 'index']);
 
 Route::prefix('/')->group(function () {
-  Route::get('/', [Main::class, 'index'])->name('/');
-  Route::get('/', [NewsNewsController::class, 'index'])->name('/');
-  Route::get('contact', [Main::class, 'contact'])->name('contact-us');
+    Route::get('/', [Main::class, 'index'])->name('/');
+    Route::get('/', [NewsNewsController::class, 'index'])->name('/');
+    Route::get('contact', [Main::class, 'contact'])->name('contact-us');
     Route::get('/', [Main::class, 'index'])->name('/');
     Route::get('contact', [Main::class, 'contact'])->name('contact-us');
 
     Route::get('/', [PageController::class, 'getCategory']);
     //route news
     Route::get('/', [PageController::class, 'getNewLates'])->name('/');
-    Route::get('category/{id}', 'PageController@getBycategory');
+    Route::get('category/{id}', [PageController::class, 'getBycategory']);
+
+    //route news details
+    Route::get('/news/{id}', [NewsPageController::class, 'index']);
 });
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
