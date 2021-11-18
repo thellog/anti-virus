@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\RegisterTiemController;
 use App\Http\Controllers\Admin\UpImgController;
+use App\Http\Controllers\CovidController;
 use App\Http\Controllers\Health_Declaration\Health_DeclarationController;
 use App\Http\Controllers\Insert\InsertController;
 use App\Http\Controllers\LoginController;
@@ -97,3 +98,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
         });
     });
 });
+
+Route::get('covid', [CovidController::class, 'index'])->name('covid');

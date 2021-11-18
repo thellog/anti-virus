@@ -21,7 +21,7 @@
                    <a class="nav-link" href="{{ route('/') }}">Trang chủ</a>
                  </li>
                  <li class="nav-item">
-                   <a class="nav-link" href="{{ route('/') }}">COVID</a>
+                   <a class="nav-link" href="{{ route('covid') }}">COVID</a>
                  </li>
                  <li class="nav-item">
                    <a class="nav-link" href="{{ route('inject-register') }}">Đăng kí tiêm chủng</a>

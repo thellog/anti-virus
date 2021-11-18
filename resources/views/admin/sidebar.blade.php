@@ -14,7 +14,7 @@
                   <img src="/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                  <a href="#" class="d-block">Hello, Admin</a>
+                  <a href="{{ URL::to('admin') }}" class="d-block">Hello, Admin</a>
               </div>
           </div>
 
