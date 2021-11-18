@@ -13,5 +13,7 @@
 
 <base href="{{asset('')}}">
 
+
+
 <!-- If you want more css -->
 @yield('head')
