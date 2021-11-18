@@ -25,10 +25,20 @@
                             <a href="">Forgot password</a>
                             @csrf
                         </form>
-                       <form id="RegForm">
-                            <input type="text" placeholder="UserName">
-                            <input type="email" placeholder="Email">
-                            <input type="password" placeholder="PassWord">
+                       <form action="{{route('regis-user') }}" method="post" id="RegForm">
+                        @if(Session::has('success'))
+                        <div class="alert alert-succes">{{ Session::get('succes') }}</div>
+                        @endif
+                        @if(Session::has('fail'))
+                        <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+                        @endif
+                           @csrf
+                            <input type="text" placeholder="UserName" name="name" value="{{ old('name') }}">
+                            <span class="text-danger">@error('name') {{ $message }} @enderror</span>
+                            <input type="email" placeholder="Email" name="email" value="{{ old('email') }}">
+                            <span class="text-danger">@error('email') {{ $message }} @enderror</span>
+                            <input type="password" placeholder="PassWord" name="password" value="{{ old('password') }}">
+                            <span class="text-danger">@error('password') {{ $message }} @enderror</span>
                             <button type="submit" class="btn btn-danger">Register</button>
                         </form>
                     </div>
