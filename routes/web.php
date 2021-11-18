@@ -35,6 +35,7 @@ Route::prefix('/')->group(function () {
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::post('login/store', [LoginController::class, 'store'])->name('login-store');
+Route::post('login/registration', [LoginController::class, 'registration'])->name('regis-user');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 //router get post trang dk tiem

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\User;
+use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
   public function login()
@@ -33,5 +34,25 @@ class LoginController extends Controller
       return redirect()->route('admin');
     }
     return redirect()->back()->with('error', 'Email hoặc mật khẩu không chính xác!');
+  }
+  public function registration(Request $req)
+  {
+    $req->validate([
+      'name'=>'required',
+      'email'=>'required|email|unique:users',
+      'password'=>'required|min:5|max:12'
+    ]);
+    $user = new User();
+    $user->name = $req->name;
+    $user->email = $req->email;
+    $user->password = Hash::make($req->password);
+    $res = $user->save();
+    if($res)
+    {
+        return back()->with('success','You have registerred successfuly');
+    }
+    else{
+        return back()->with('fail', 'Something wrong');
+    }
   }
 }
