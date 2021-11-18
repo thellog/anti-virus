@@ -20,7 +20,7 @@
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="box_wrapper">
             <div class="latest_newsarea"> <span>Tin Mới</span>
                 <ul id="ticker01" class="news_sticker">
@@ -123,11 +123,11 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            @include('layout.footer')
-            @include('layout.scripts')
+            </section>           
         </div>
     </div>
+    @include('layout.footer')
+    @include('layout.scripts')
     <script src="/frontend/news/assets/js/jquery.min.js"></script>
     <script src="/frontend/news/assets/js/wow.min.js"></script>
     <script src="/frontend/news/assets/js/bootstrap.min.js"></script>
