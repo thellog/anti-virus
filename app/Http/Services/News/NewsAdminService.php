@@ -66,12 +66,12 @@ class NewsAdminService
 
   public function getUserData()
   {
-    $users = User::select(DB::raw("COUNT(*) as count"))
+    $users = News::select(DB::raw("COUNT(*) as count"))
       ->whereYear('created_at', date("Y"))
       ->groupBy(DB::raw("Month(created_at)"))
       ->pluck('count');
 
-    $months = User::select(DB::raw("Month(created_at) as month"))
+    $months = News::select(DB::raw("Month(created_at) as month"))
       ->whereYear('created_at', date("Y"))
       ->groupBy(DB::raw("Month(created_at)"))
       ->pluck('month');
@@ -85,10 +85,7 @@ class NewsAdminService
     return $data;
   }
 
-  public function getInjectData()
-  {
-  }
-  public function getNews()
+  public function getNews() 
   {
     return News::with('category')->orderByDesc('id')->simplePaginate(10);
   }

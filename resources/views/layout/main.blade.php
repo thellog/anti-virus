@@ -39,6 +39,7 @@
           </div>
         </div>
       </div>
+      <div class="wrapper">
       <div class="content-wrapper">
         <div class="container-fluid">
 
@@ -48,6 +49,7 @@
           @yield('content')
           <!-- footer -->
         </div>
+      </div>
       </div>
       @include('layout.footer')
       @include('layout.scripts')
