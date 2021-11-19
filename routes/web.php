@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\RegisterTiemController;
+use App\Http\Controllers\Admin\KhaiBaoYTeController;
 use App\Http\Controllers\Admin\UpImgController;
 use App\Http\Controllers\CovidController;
 use App\Http\Controllers\Health_Declaration\Health_DeclarationController;
@@ -95,6 +96,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
         # hiển thi danh sách đăng ký tiêm
         Route::prefix('register_tiem')->group(function () {
             Route::get('list', [RegisterTiemController::class, 'index'])->name('list');
+        });
+
+           # hiển thi danh sách khai bao y te
+            Route::prefix('khaibaoyte')->group(function () {
+            Route::get('list', [KhaiBaoYTeController::class, 'index'])->name('list');
         });
     });
 });
