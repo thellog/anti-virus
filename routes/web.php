@@ -98,9 +98,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
             Route::get('list', [RegisterTiemController::class, 'index'])->name('list');
         });
 
+<<<<<<< HEAD
          # hiển thi danh sách người khai báo y tế
         Route::prefix('khaibaoyte')->group(function () {
             Route::get('list', [KhaiBaoYteController::class, 'index'])->name('list');
+=======
+           # hiển thi danh sách khai bao y te
+            Route::prefix('khaibaoyte')->group(function () {
+            Route::get('list', [KhaiBaoYTeController::class, 'index'])->name('list');
+>>>>>>> master
         });
     });
 });
