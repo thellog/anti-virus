@@ -100,6 +100,25 @@
                         </li>
                     </ul>
                   </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-pen-alt"></i>
+                        <p>
+                            Danh sách khai báo y tế
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ URL::to('admin/khaibaoyte/list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách người khai báo</p>
+                            </a>
+                        </li>
+                    </ul>
+                  </li>
+
                 </ul>
           </nav>
           <!-- /.sidebar-menu -->
