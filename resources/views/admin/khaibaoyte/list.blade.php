@@ -21,7 +21,7 @@
                                 <th>Sốt,ho</th>
                                 <th>Đau họng</th>
                                 <th>Chi tiết</th>      
-                                <th>Ngày đăng ký</th>
+                                <th>Ngày khai báo</th>
                             </tr>
                         </thead>
                         <tbody>
