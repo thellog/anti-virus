@@ -3,7 +3,7 @@
 <div class="row" data-aos="fade-up">
     <div class="col-xl-8 stretch-card grid-margin">
         <div class="position-relative"> @foreach ($newsHot as $nh)
-            <a href="/news/{{$nh->id}}"><img src="{{$nh->thumb}}" alt="1450x820" class="img-fluid" /></a>
+            <a href="/news/{{$nh->id}}"><img src="{{$nh->thumb}}" alt="1450x820" width="100%" height="500px" /></a>
 
             <div class="banner-content">
 
@@ -12,11 +12,11 @@
                 </div>
 
 
-                <h1 class="mb-0"> <a style="text-decoration: none;color: #fff;" href="/news/{{$nh->id}}">{{$nh->name}}</a></h1>
+                <h1 class="mb-0"> <a style="text-decoration: none;color:blue;" href="/news/{{$nh->id}}">{{$nh->name}}</a></h1>
                 <h1 class="mb-2">
                     {{ $nh->title }}
                 </h1>
-                <div class="fs-12">
+                <div class="fs-12" style="color:red">
                     <span class="mr-2">Photo </span>{{ $nh->updated_at->diffForHumans() }}
                 </div>
 
@@ -79,7 +79,7 @@
                     <div class="col-sm-4 grid-margin">
                         <div class="position-relative">
                             <div class="rotate-img">
-                                <a href="/news/{{$ns->id}}"> <img src="{{$ns->thumb}}" alt="thumb" class="img-fluid" />
+                                <a href="/news/{{$ns->id}}"> <img src="{{$ns->thumb}}" alt="thumb" width="100%" height="150px" />
                             </div></a>
                             <div class="badge-positioned">
                                 <span class="badge badge-danger font-weight-bold">{{$ns->category->name}}</span>
