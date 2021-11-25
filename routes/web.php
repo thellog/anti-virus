@@ -110,16 +110,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
             Route::get('delete/{id}', [RegisterTiemController::class, 'destroy']); // xóa
         });
 
-
            # hiển thi danh sách khai bao y te
             Route::prefix('khaibaoyte')->group(function () {
             Route::get('list', [KhaiBaoYTeController::class, 'index'])->name('list');
             Route::get('delete/{id}', [KhaiBaoYTeController::class, 'destroy']); // xóa
-
-         # hiển thi danh sách người khai báo y tế
-            Route::prefix('khaibaoyte')->group(function () {
-            Route::get('list', [KhaiBaoYteController::class, 'index'])->name('list');
-
         });
     });
 });
