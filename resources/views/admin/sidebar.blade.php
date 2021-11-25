@@ -83,6 +83,24 @@
                     </ul>
                   </li>
 
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-pen-alt"></i>
+                        <p>
+                            Tài khoản
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                         <li class="nav-item">
+                            <a href="{{ URL::to('/admin/account/list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách tài khoản</p>
+                            </a>
+                        </li>
+                    </ul>
+                  </li>
+
                    <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-pen-alt"></i>

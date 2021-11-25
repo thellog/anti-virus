@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\RegisterTiemController;
 use App\Http\Controllers\Admin\KhaiBaoYTeController;
 use App\Http\Controllers\Admin\UpImgController;
@@ -90,16 +91,35 @@ Route::middleware(['auth', 'admin'])->group(function () {
             Route::post('edit/{news}', [NewsController::class, 'update']);
             Route::DELETE('destroy', [NewsController::class, 'destroy']);
         });
+
+         # account
+            Route::prefix('account')->group(function () {
+           
+             Route::get('list', [AccountController::class, 'index'])->name('list');
+             Route::get('edit/{id}', [AccountController::class,'edit']); // Sửa account
+             Route::post('edit/{id}', [AccountController::class, 'update']); // update
+             Route::get('delete/{id}', [AccountController::class, 'destroy']); // xóa
+        });
+
         # upload image
         Route::post('upload/services', [UpImgController::class, 'store']);
 
         # hiển thi danh sách đăng ký tiêm
         Route::prefix('register_tiem')->group(function () {
             Route::get('list', [RegisterTiemController::class, 'index'])->name('list');
+            Route::get('delete/{id}', [RegisterTiemController::class, 'destroy']); // xóa
         });
+
+
+           # hiển thi danh sách khai bao y te
+            Route::prefix('khaibaoyte')->group(function () {
+            Route::get('list', [KhaiBaoYTeController::class, 'index'])->name('list');
+            Route::get('delete/{id}', [KhaiBaoYTeController::class, 'destroy']); // xóa
+
          # hiển thi danh sách người khai báo y tế
-        Route::prefix('khaibaoyte')->group(function () {
+            Route::prefix('khaibaoyte')->group(function () {
             Route::get('list', [KhaiBaoYteController::class, 'index'])->name('list');
+
         });
     });
 });
