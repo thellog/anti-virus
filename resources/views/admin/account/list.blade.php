@@ -34,7 +34,7 @@
                                     <a class="btn btn-primary btn-sm" href="/admin/account/edit/{{ $news->id }}">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="delete/{{ $news->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">
+                                    <a href="delete/{{ $news->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa tài khoản này không?');">
                                         <i class="fas fa-trash"></i>
                                     </a>
 

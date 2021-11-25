@@ -41,7 +41,7 @@
                                 <td>{{ $user->tiensubenh }}</td>
                                 <td>{{ $user->created_at }}</td>
                                 <td>                        
-                                    <a href="delete/{{ $user->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">
+                                    <a href="delete/{{ $user->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa thông tin này?');">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
