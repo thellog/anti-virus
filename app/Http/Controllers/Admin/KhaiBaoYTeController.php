@@ -17,4 +17,10 @@ class KhaiBaoYTeController extends Controller
          'title' => 'Danh sách khai báo y tế',
           'health_declaration'=>$health_declaration]);
    }
+   
+        public function destroy ($id ) {
+        DB:: delete( 'delete from health_declaration where id = ?' ,[$id ]);
+
+        return redirect('admin/khaibaoyte/list')->with('success','Dữ liệu xóa thành công.');
+        }
 }

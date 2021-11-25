@@ -22,6 +22,7 @@
                                 <th>Loại vacxin muốn tiêm</th>
                                 <th>Tiền sử bệnh</th>
                                 <th>Ngày đăng ký</th>
+                                <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,11 @@
                                 <td>{{ $user->vacxin }}</td>
                                 <td>{{ $user->tiensubenh }}</td>
                                 <td>{{ $user->created_at }}</td>
+                                <td>                        
+                                    <a href="delete/{{ $user->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

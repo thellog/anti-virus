@@ -22,6 +22,7 @@
                                 <th>Đau họng</th>
                                 <th>Chi tiết</th>      
                                 <th>Ngày khai báo</th>
+                                <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,11 @@
                                 <td>{{ $user->dau_hong }}</td>
                                 <td>{{ $user->description}}</td>
                                 <td>{{ $user->created_at }}</td>
+                                 <td>                               
+                                    <a href="delete/{{ $user->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

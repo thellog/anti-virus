@@ -17,4 +17,11 @@ class RegisterTiemController extends Controller
          'title' => 'Danh sách đăng ký tiêm',
           'imformation'=>$imformation]);
    }
+
+
+    public function destroy ($id ) {
+    DB:: delete( 'delete from imformation where id = ?' ,[$id ]);
+
+    return redirect('admin/register_tiem/list')->with('success','Dữ liệu xóa thành công.');
+}
 }
