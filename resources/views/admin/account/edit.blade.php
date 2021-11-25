@@ -34,8 +34,6 @@
                             {{ __('A fresh verification link has been sent to your email address.') }}
                         </div>
                     @endif
-
-      
     </div>
      @endforeach
 
