@@ -1,41 +1,98 @@
 @extends('layout.main')
 
 @section('head')
-    <title>{{ $title }}</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<title>{{ $title }}</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
 
 @section('content')
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row text-white">
-          <div class="col-lg-4 col-4">
-            <div class="small-box bg-info rounded text-center p-1">
-              <div class="inner">
-                <p><strong>Ca phục hồi {{ number_format($data_vn["recovered"]) }}</strong></p>
-                <h3 id="recovered">Hôm nay: {{ $data_vn["todayRecovered"] }}</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-4">
-            <div class="small-box bg-warning rounded text-center p-1">
-              <div class="inner">
-                <p><strong>Ca mắc {{ number_format($data_vn["cases"])}}</strong></p>
-                <h3 id="cases">Hôm nay: {{$data_vn["todayCases"] }}</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-4">
-            <div class="small-box bg-danger rounded text-center p-1">
-              <div class="inner">
-                <p><strong>Tử vong {{ number_format($data_vn["deaths"]) }}</strong></p>
-                <h3 id="deaths">Hôm nay: {{$data_vn["todayDeaths"] }}</h3>
-              </div>
-            </div>
+<section class="content">
+  <div class="container">
+    <div class="row text-white">
+      <div class="col-lg-4 col-4">
+        <div class="small-box bg-info rounded text-center p-1">
+          <div class="inner">
+            <p><strong>Ca phục hồi {{ number_format($data_vn["recovered"]) }}</strong></p>
+            <h3 id="recovered">Hôm nay: {{ $data_vn["recoveredToday"] }}</h3>
           </div>
         </div>
+      </div>
+      <div class="col-lg-4 col-4">
+        <div class="small-box bg-warning rounded text-center p-1">
+          <div class="inner">
+            <p><strong>Ca mắc {{ number_format($data_vn["infected"])}}</strong></p>
+            <h3 id="cases">Hôm nay: {{$data_vn["infectedToday"] }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-4">
+        <div class="small-box bg-danger rounded text-center p-1">
+          <div class="inner">
+            <p><strong>Tử vong {{ number_format($data_vn["died"]) }}</strong></p>
+            <h3 id="deaths">Hôm nay: {{$data_vn["diedToday"] }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <div class="row mt-5">
+    <hr>
+
+    <div class="row mt-5">
+      <div class="col-lg-7">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXwHqcv0Zp0gd044_jzM-TWG51wJnaEHQj8w&usqp=CAU" alt="bản tin covid">
+      </div>
+      <div class="col-lg-5">
+        <h1>Tổng hợp tình hình covid-19 thế giới hôm nay, ngày {{ date("d/m/Y") }}</h1>
+        <p>Theo số liệu mới nhất :</p>
+        <ul>
+          <li>Tổng sổ ca mắc hôm nay: +{{ $data["todayCases"] }} ca/ {{ $data["cases"] }} ca</li>
+          <li>Tổng số ca tử vong hôm nay: +{{ $data["todayDeaths"] }} ca/ {{ $data["deaths"] }} ca</li>
+          <li>Tổng số ca điều trị hôm nay: +{{ $data["todayRecovered"] }} ca/ {{ $data["recovered"] }} ca</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row mt-5">
+      <section class="col-lg-6">
+        <h1>TÌNH HÌNH DỊCH CẢ NƯỚC</h1>
+        <div class="table-responsive" style="height: 500px; width: 100%;">
+          <table class="table table-success">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Tỉnh/TP</th>
+                <th>Tổng số ca</th>
+                <th>Hôm nay</th>
+                <th>Tử vong</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for ($dd = 0; $dd < count($data_vn_countries); $dd++) <tr>
+                <td>{{ $dd+1 }}</td>
+                <td>{{ $data_vn_countries[$dd]["name"] }}</td>
+                <td>{{ $data_vn_countries[$dd]["cases"] }}</td>
+                <td>+ {{ $data_vn_countries[$dd]["casesToday"] }}</td>
+                <td>{{ $data_vn_countries[$dd]["death"] }}</td>
+                </tr>
+                @endfor
+            </tbody>
+          </table>
+        </div>
+      </section>
+        <section class="col-lg-6 mt-5">
+          <div class="card bg-transparent">
+            <div class="card-head">
+              <strong>THỐNG KÊ CA MẮC VÀ CA HỒI PHỤC TRONG TUẦN</strong> 
+            </div>
+            <div class="card-body">
+              <canvas id="covidStatistic" style="height: 450px; width: 100%;"></canvas>
+            </div>
+          </div>
+        </section>
+    </div>
+    <!-- <div class="row mt-5">
           <section class="col-lg-7 connectedSortable">
             <div class="card">
               <div class="card-header">
@@ -61,102 +118,62 @@
               </div>
             </div>
           </section>
-        </div>
-      </div>
-    </section>
+        </div> -->
+  </div>
+</section>
 @endsection
 
 @section('scripts')
+
 <script>
-const ctx = document.getElementById('covidStatistic').getContext('2d');
-const data = <?= json_encode($data);?>;
-// const obj = JSON.parse(data);
+  const ctx = document.getElementById('covidStatistic').getContext('2d');
+  const data = <?= json_encode($data_vn_statistic); ?>;
+  // const obj = JSON.parse(data);
 
-const covidStatistic = new Chart(ctx, {
+  const covidStatistic = new Chart(ctx, {
     data: {
-        datasets: [{
-            label: 'Thế giới',
-            type: 'line',
-            data: [ data.cases,
-                    data.todayCases,
-                    data.deaths,
-                    data.todayDeaths,
-                    data.recovered,
-                    data.todayRecovered
-                ],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }],
-        labels: ['Tổng số ca', 'Ca hôm nay', 'Tử vong', 'Tử vong hôm nay', 'Hồi phục', 'Hồi phục hôm nay'],
+      datasets: [{
+        label: 'Ca mắc',
+        type: 'bar',
+        data: [
+          data[0].cases,data[1].cases,data[2].cases,
+          data[3].cases,data[4].cases,data[5].cases,
+          data[6].cases,
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)'
+        ],
+        borderWidth: 1
+      }, {
+        label: 'Ca hồi phục',
+        type: 'line',
+        data: [
+          data[0].recovered,data[1].recovered,data[2].recovered,
+          data[3].recovered,data[4].recovered,data[5].recovered,
+          data[6].recovered,
+        ],
+        backgroundColor: [
+          'rgba(153, 102, 255, 0.2)'
+          ],
+        borderColor: [
+          'rgb(153, 102, 255)'
+          ],
+        borderWidth: 2
+      }],
+      labels: [ data[0].date, data[1].date, data[2].date, 
+      data[3].date, data[4].date, data[5].date, data[6].date ],
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+      scales: {
+        y: {
+          beginAtZero: true
         }
+      }
     }
-});
-
-const ctx1 = document.getElementById('covidVN').getContext('2d');
-const data1 = <?= json_encode($data_vn);?>;
-// const obj1 = JSON.parse(data1);
-
-const covidVN = new Chart(ctx1, {
-    data: {
-        datasets: [{
-            label: 'Việt Nam',
-            type: 'line',
-            data: [ data1.cases,
-                    data1.todayCases,
-                    data1.deaths,
-                    data1.todayDeaths,
-                    data1.recovered,
-                    data1.todayRecovered
-                ],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }],
-        labels: ['Tổng số ca', 'Ca hôm nay', 'Tử vong', 'Tử vong hôm nay', 'Hồi phục', 'Hồi phục hôm nay'],
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+  });
 
 </script>
 @endsection
