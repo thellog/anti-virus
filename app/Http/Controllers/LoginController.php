@@ -55,4 +55,8 @@ class LoginController extends Controller
         return back()->with('fail', 'Something wrong');
     }
   }
+  public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/');
+    }
 }

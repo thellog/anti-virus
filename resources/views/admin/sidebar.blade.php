@@ -14,7 +14,7 @@
                   <img src="/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                  <a href="{{ URL::to('admin') }}" class="d-block">Hello, Admin</a>
+                  <a href="{{ URL::to('admin') }}" class="d-block">Hello ADMIN: {{ Auth::user()->name }}</a>
               </div>
           </div>
 
@@ -136,6 +136,21 @@
                         </li>
                     </ul>
                   </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                         <i class="fas fa-pen-alt"></i>
+                            {{ __('Thoát') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                  </li>
+
 
                 </ul>
           </nav>
