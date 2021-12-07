@@ -14,7 +14,7 @@
                   <img src="/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                  <a href="{{ URL::to('admin') }}" class="d-block">Hello ADMIN: {{ Auth::user()->name }}</a>
+                  <a href="{{ URL::to('admin') }}" class="d-block">Hello : {{ Auth::user()->name }}</a>
               </div>
           </div>
 
@@ -33,7 +33,7 @@
           <!-- Sidebar Menu -->
           <nav class="mt-2">
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          
+
                   <li class="nav-item">
                       <a href="#" class="nav-link">
                           <i class="fas fa-align-justify"></i>
@@ -56,103 +56,102 @@
                               </a>
                           </li>
                       </ul>
-                    </li>
-                
-                    
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-pen-alt"></i>
-                        <p>
-                            Bài viết
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ URL::to('/admin/news/add') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Tạo bài viết</p>
-                            </a>
-                        </li>
-                         <li class="nav-item">
-                            <a href="{{ URL::to('/admin/news/list') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách các bài viết</p>
-                            </a>
-                        </li>
-                    </ul>
-                  </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-pen-alt"></i>
-                        <p>
-                            Tài khoản
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                            <a href="{{ URL::to('/admin/account/list') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách tài khoản</p>
-                            </a>
-                        </li>
-                    </ul>
-                  </li>
-
-                   <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-pen-alt"></i>
-                        <p>
-                            Danh sách đăng ký tiêm
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ URL::to('admin/register_tiem/list') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách người tiêm</p>
-                            </a>
-                        </li>
-                    </ul>
-                  </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-pen-alt"></i>
-                        <p>
-                            Danh sách khai báo y tế
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ URL::to('admin/khaibaoyte/list') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách người khai báo</p>
-                            </a>
-                        </li>
-                    </ul>
                   </li>
 
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="fas fa-pen-alt"></i>
+                          <p>
+                              Bài viết
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ URL::to('/admin/news/add') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Tạo bài viết</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ URL::to('/admin/news/list') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Danh sách các bài viết</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="far fa-user-circle"></i>
+                          <p>
+                              Tài khoản
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ URL::to('/admin/account/list') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Danh sách tài khoản</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="fas fa-bug"></i>
+                          <p>
+                              Danh sách đăng ký tiêm
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ URL::to('admin/register_tiem/list') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Danh sách người tiêm</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="fas fa-user-secret"></i>
+                          <p>
+                              Danh sách khai báo y tế
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ URL::to('admin/khaibaoyte/list') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Danh sách người khai báo</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                                         <i class="fas fa-pen-alt"></i>
-                            {{ __('Thoát') }}
-                        </a>
+                          <i class="fas fa-sign-out-alt"></i>
+                          {{ __('Thoát') }}
+                      </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
                   </li>
 
 
-                </ul>
+              </ul>
           </nav>
           <!-- /.sidebar-menu -->
       </div>

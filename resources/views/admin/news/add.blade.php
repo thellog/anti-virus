@@ -29,6 +29,18 @@
             </div>
         </div>
         <div class="form-group">
+            <label>Tin hot</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="active" name="isHot" value="1" checked="">
+                <label for="active" class="custom-control-label">Có</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="inactive" name="isHot" value="0">
+                <label for="inactive" class="custom-control-label">Không</label>
+            </div>
+        </div>
+        <div class="form-group">
             <label>Mô Tả </label>
             <textarea name="description" class="form-control"></textarea>
         </div>

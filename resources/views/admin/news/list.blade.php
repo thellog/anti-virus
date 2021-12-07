@@ -14,6 +14,7 @@
                                 <th style="width: 50px;">ID</th>
                                 <th style="width: 500px;">Tiêu đề</th>
                                 <th style="width: 300px;">Thể loại</th>
+                                <th>Tin hot</th>
                                 <th>Ngày cập nhật</th>
                                 <th style="width: 150px;">&nbsp;</th>
                             </tr>
@@ -24,6 +25,7 @@
                                 <td>{{ $news->id }}</td>
                                 <td>{{ $news->name }}</td>
                                 <td>{{ $news->category->name }}</td>
+                                <td>{{ $news->isHot == 1 ? 'YES' : 'NO' }}</td>
                                 <td>{{ $news->updated_at }}</td>
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="/admin/news/edit/{{ $news->id }}">
