@@ -11,6 +11,7 @@ class News extends Model
         'description',
         'content',
         'category_id',
+        'isHot',
         'thumb'
     ];
 

@@ -2,8 +2,9 @@
 @section('hotnews')
 <div class="row" data-aos="fade-up">
     <div class="col-xl-8 stretch-card grid-margin">
-        <div class="position-relative"> @foreach ($newsHot as $nh)
-            <a href="/news/{{$nh->id}}"><img src="{{$nh->thumb}}" alt="1450x820" width="100%" height="500px" /></a>
+        <div class="position-relative">
+            @foreach ($newsHot as $nh)
+            <a href="/news/{{$nh->id}}"><img src="{{$nh->thumb}}" alt="1450x820" width="100%" height="auto" /></a>
 
             <div class="banner-content">
 
@@ -12,14 +13,13 @@
                 </div>
 
 
-                <h1 class="mb-0"> <a style="text-decoration: none;color:blue;" href="/news/{{$nh->id}}">{{$nh->name}}</a></h1>
+                <h1 class="mb-0"> <a style="text-decoration: none;color:darkblue;" href="/news/{{$nh->id}}">{{$nh->name}}</a></h1>
                 <h1 class="mb-2">
                     {{ $nh->title }}
                 </h1>
                 <div class="fs-12" style="color:red">
                     <span class="mr-2">Photo </span>{{ $nh->updated_at->diffForHumans() }}
                 </div>
-
             </div>
             @endforeach
         </div>
@@ -55,15 +55,13 @@
                 <ul class="vertical-menu">
                     @foreach($category as $cate)
                     @if($cate->parent_id == 0)
-                    <li>
-                        <a href="/category/{{$cate->id}}">{{$cate->name}}</a>
-                    </li>
-                    @if($cate->id == $cate->parent_id)
-                    <ul class="">
-
-                        <li style="list-style: none;"><a href="#">{{$cate->name}}</a></li>
-                    </ul>
-                    @endif
+                        <li>
+                            <a href="/category/{{$cate->id}}">{{$cate->name}}</a>
+                        </li>
+                    @elseif($cate->id == $cate->parent_id)
+                        <ul class="">
+                            <li style="list-style: none;"><a href="#">{{$cate->name}}</a></li>
+                        </ul>
                     @endif
                     @endforeach
                 </ul>

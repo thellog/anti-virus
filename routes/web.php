@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Route as RoutingRoute;
 use App\Http\Controllers\MainController as Main;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\PageController;
+use App\Models\Imformation;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('test', [NewsPageController::class, 'index']);
@@ -108,6 +109,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::prefix('register_tiem')->group(function () {
             Route::get('list', [RegisterTiemController::class, 'index'])->name('list');
             Route::get('delete/{id}', [RegisterTiemController::class, 'destroy']); // xóa
+            Route::get('download-preview', [RegisterTiemController::class, 'downloadPreview']);
+            Route::get('download', [RegisterTiemController::class, 'downloadPDF']);
         });
 
            # hiển thi danh sách khai bao y te
