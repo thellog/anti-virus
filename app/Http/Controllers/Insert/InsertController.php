@@ -6,8 +6,7 @@ use App\Models\Imformation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\MessageBag;
-
+use PDF;
 class InsertController extends Controller
 {
     public function view()
@@ -88,4 +87,5 @@ class InsertController extends Controller
         $info->save();
         return redirect('dangkytiem/dangky')->with('success', 'Đăng ký tiêm thành công! Chúc mừng bạn');
     }
+
 }

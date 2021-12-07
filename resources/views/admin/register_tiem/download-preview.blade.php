@@ -1,7 +1,10 @@
-@extends('admin.main')
-
-@section('content')
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @include('admin.head')
+</head>
+<body>
+    
 <div class="row">
     <div class="col-md-12">
         <div class="tile">
@@ -22,11 +25,10 @@
                                 <th>Loại vacxin muốn tiêm</th>
                                 <th>Tiền sử bệnh</th>
                                 <th>Ngày đăng ký</th>
-                                <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($imformation as $user)
+                            @foreach ($patients as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
@@ -40,11 +42,6 @@
                                 <td>{{ $user->vacxin }}</td>
                                 <td>{{ $user->tiensubenh }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td>                        
-                                    <a href="delete/{{ $user->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa thông tin này?');">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -53,16 +50,13 @@
             </div>
         </div>
     </div>
-    <!-- <div class="form-group">
-        <a href="download-preview">Download</a>
-    </div> -->
+    <div class="form-group">
+        <a href="download">Tải xuống</a>
+    </div>
 </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-<script type="text/javascript">
-    $('#sampleTable').DataTable();
-</script>
+</body>
+</html>
 
-@endsection
+@include('admin.footer')
+</body>
+</html>

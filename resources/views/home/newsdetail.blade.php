@@ -57,8 +57,13 @@
                                         <li><a href="#">Thể loại<i class="fa fa-angle-right"></i></a></li>
                                         <li class="active">{{$nd->category->name}}</li>
                                     </ol>
-                                    <h2 class="post_title wow ">{{$nd->name}}</h2>
-                                    <a href="#" class="author_name"><i class="fa fa-user"></i>admin</a> <a href="#" class="post_date"><i class="fa fa-clock-o"></i>{{$nl->updated_at}}</a>
+                                    <h2 class="post_title wow">{{$nd->name}}</h2>
+                                    <a href="#" class="author_name"><i class="fa fa-user"></i>admin</a> <a href="#" class="post_date"><i class="fa fa-clock-o"></i>{{$nl->updated_at->diffForHumans()}}</a>
+                                    <div class="single_post_content" style="text-transform: uppercase; font-size: 24px;">
+                                        <strong>{!!$nd->description!!}</strong>
+                                    </div>
+                                    <img src="{{ $nd->thumb }}" alt="{{ $nd->name }}" style="width: 840px; height: auto;">
+                                    <i class="text-sm mt-5">Ảnh minh hoạ</i>
                                     <div class="single_post_content">
                                         {!!$nd->content!!}
                                     </div>
@@ -86,8 +91,8 @@
                                         <ul class="catg3_snav ppost_nav wow fadeInDown">
                                             @foreach($popular as $pop)
                                             <li>
-                                                <div class="media"> <a href="#" class="media-left"> <img alt="" src="{{$pop->thumb}}"> </a>
-                                                    <div class="media-body"> <a href="#" class="catg_title"> {{$pop->name}}</a></div>
+                                                <div class="media"> <a href="/news/{{$pop->id}}" class="media-left"> <img alt="" src="{{$pop->thumb}}"> </a>
+                                                    <div class="media-body"> <a href="/news/{{$pop->id}}" class="catg_title"> {{$pop->name}}</a></div>
                                                 </div>
                                             </li>
                                             @endforeach
